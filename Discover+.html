@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="style-sheet-Discover+.css">
+    <title>Discover+ | Leonel Ferreira</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Starfield Background -->
+    <canvas id="starfield"></canvas>
+
+    <nav id="glass-nav">
+        <ul>
+            <div class="nav-glow"></div>
+            <li><a href="Portfolio Main Page.html" class="back-arrow"><i class="fas fa-arrow-left"></i></a></li>
+            <li><a href="#" class="active discover-center">Discover+</a></li>
+        </ul>
+    </nav>
+
+    <div class="scroll-track">
+        <div class="scroll-button"></div>
+    </div>
+
+    <!-- About Me Section -->
+    <section class="about-me-section">
+        <div class="section-container">
+            <h2 class="section-title">About Me</h2>
+
+            <!-- Photo with Mom -->
+            <div class="about-card glass-interactive">
+                <div class="about-images">
+                    <img src="IMG/leonel-with-mom.png" alt="Leonel with Mom" class="about-img">
+                </div>
+                <div class="about-text">
+                    <h3>My Story</h3>
+                    <!-- WRITABLE AREA - Add your story here -->
+                    <div class="story-content" id="storyContent">
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- School Photo -->
+            <div class="about-card glass-interactive">
+                <div class="about-images">
+                    <img src="IMG/school-photo.png" alt="School Days" class="about-img">
+                </div>
+                <div class="about-text">
+                    <h3>Early Days</h3>
+                    <!-- WRITABLE AREA - Add your memories here -->
+                    <div class="story-content" id="earlyDaysContent">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tributes Section -->
+    <section class="tributes-section">
+        <div class="section-container">
+            <h2 class="section-title">Tributes</h2>
+
+            <!-- XXXTentacion Tribute -->
+            <div class="about-card glass-interactive">
+                <div class="about-images">
+                    <img src="IMG/xxxtentacion.png" alt="XXXTentacion" class="about-img">
+                </div>
+                <div class="about-text">
+                    <h3>XXXTentacion</h3>
+                    <!-- ===== WRITABLE AREA - Add your tribute here ===== -->
+                    <div class="story-content" id="xxxContent">
+
+                    </div>
+                    <!-- ===== END WRITABLE AREA ===== -->
+                </div>
+            </div>
+
+            <!-- Lil Wayne Tribute -->
+            <div class="about-card glass-interactive">
+                <div class="about-images">
+                    <img src="IMG/lil-wayne.png" alt="Lil Wayne" class="about-img">
+                </div>
+                <div class="about-text">
+                    <h3>Lil Wayne</h3>
+                    <!-- ===== WRITABLE AREA - Add your tribute here ===== -->
+                    <div class="story-content" id="wayneContent">
+
+                    </div>
+                    <!-- ===== END WRITABLE AREA ===== -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="glass-footer">
+        <div class="footer-content">
+
+            <div class="footer-section">
+                <span class="footer-name">Leonel Ferreira</span>
+                <span class="footer-desc">Programmer, based in Luanda</span>
+            </div>
+
+            <div class="footer-section social-icons">
+                <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://youtube.com/@blackboxstudios1?si=mZwV6yiS-fTfzxJL" target="_blank"
+                    class="social-btn"><i class="fab fa-youtube"></i></a>
+            </div>
+
+            <div class="footer-section footer-controls">
+                <div class="toggle-group">
+                    <button class="footer-btn" id="lang-en">EN</button>
+                    <button class="footer-btn" id="lang-pt">PT</button>
+                </div>
+            </div>
+
+            <div class="toggle-group">
+                <button class="footer-btn" id="theme-toggle">
+                    <span class="theme-icon">☼</span>
+                </button>
+            </div>
+        </div>
+
+    </footer>
+
+    <script>
+        // ==========================================
+        // STARFIELD BACKGROUND EFFECT
+        // ==========================================
+        const canvas = document.getElementById('starfield');
+        const ctx = canvas.getContext('2d');
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = document.documentElement.scrollHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        // Star particles
+        const stars = [];
+        const starCount = 200;
+        const mouse = { x: null, y: null, radius: 150 };
+
+        // Shooting stars
+        const shootingStars = [];
+
+        class Star {
+            constructor() {
+                this.reset();
+                this.y = Math.random() * canvas.height;
+                this.originalX = this.x;
+                this.originalY = this.y;
+            }
+
+            reset() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 1.5 + 0.5;
+                this.originalX = this.x;
+                this.originalY = this.y;
+                this.vx = 0;
+                this.vy = 0;
+            }
+
+            update() {
+                // Mouse repulsion
+                if (mouse.x !== null && mouse.y !== null) {
+                    const dx = this.x - mouse.x;
+                    const dy = this.y - mouse.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < mouse.radius) {
+                        const force = (mouse.radius - distance) / mouse.radius;
+                        const angle = Math.atan2(dy, dx);
+                        this.vx += Math.cos(angle) * force * 2;
+                        this.vy += Math.sin(angle) * force * 2;
+                    }
+                }
+
+                // Apply velocity
+                this.x += this.vx;
+                this.y += this.vy;
+
+                // Return to original position
+                this.vx += (this.originalX - this.x) * 0.05;
+                this.vy += (this.originalY - this.y) * 0.05;
+
+                // Damping
+                this.vx *= 0.95;
+                this.vy *= 0.95;
+
+                // Keep in bounds
+                if (this.x < 0 || this.x > canvas.width) this.reset();
+                if (this.y < 0 || this.y > canvas.height) this.reset();
+            }
+
+            draw() {
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        class ShootingStar {
+            constructor() {
+                this.reset();
+            }
+
+            reset() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * (canvas.height * 0.5);
+                this.length = Math.random() * 80 + 60;
+                this.speed = Math.random() * 15 + 10;
+                this.angle = Math.PI / 4 + (Math.random() - 0.5) * 0.3;
+                this.opacity = 1;
+                this.life = 0;
+                this.maxLife = Math.random() * 60 + 40;
+            }
+
+            update() {
+                this.x += Math.cos(this.angle) * this.speed;
+                this.y += Math.sin(this.angle) * this.speed;
+                this.life++;
+                this.opacity = 1 - (this.life / this.maxLife);
+
+                if (this.life >= this.maxLife || this.y > canvas.height || this.x > canvas.width) {
+                    this.reset();
+                }
+            }
+
+            draw() {
+                const gradient = ctx.createLinearGradient(
+                    this.x, this.y,
+                    this.x - Math.cos(this.angle) * this.length,
+                    this.y - Math.sin(this.angle) * this.length
+                );
+                gradient.addColorStop(0, `rgba(139, 92, 246, ${this.opacity})`);
+                gradient.addColorStop(0.5, `rgba(167, 139, 250, ${this.opacity * 0.6})`);
+                gradient.addColorStop(1, 'rgba(139, 92, 246, 0)');
+
+                ctx.strokeStyle = gradient;
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                ctx.moveTo(this.x, this.y);
+                ctx.lineTo(
+                    this.x - Math.cos(this.angle) * this.length,
+                    this.y - Math.sin(this.angle) * this.length
+                );
+                ctx.stroke();
+            }
+        }
+
+        // Initialize stars
+        for (let i = 0; i < starCount; i++) {
+            stars.push(new Star());
+        }
+
+        // Mouse tracking
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY + window.scrollY;
+        });
+
+        // ==========================================
+        // SCROLL-BASED UI BEHAVIORS
+        // ==========================================
+        const nav = document.getElementById('glass-nav');
+        const footer = document.getElementById('glass-footer');
+        let lastScrollY = window.scrollY;
+        let navVisible = true;
+
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            const scrollingDown = currentScrollY > lastScrollY;
+            const scrollingUp = currentScrollY < lastScrollY;
+
+            // NAVIGATION: Hide on scroll down, show on scroll up
+            // Note: maintains translateX(-50%) for centering
+            if (scrollingDown && navVisible && currentScrollY > 100) {
+                nav.style.transform = 'translate(-50%, -150px)';
+                nav.style.opacity = '0';
+                navVisible = false;
+            } else if (scrollingUp && !navVisible) {
+                nav.style.transform = 'translate(-50%, 0)';
+                nav.style.opacity = '1';
+                navVisible = true;
+            }
+
+            // FOOTER: Only visible when at the VERY bottom of the page
+            const scrollHeight = document.documentElement.scrollHeight;
+            const scrollPosition = window.scrollY + window.innerHeight;
+            // Strict threshold: only show when within 20px of bottom
+            const atBottom = (scrollHeight - scrollPosition) < 20;
+
+            if (atBottom) {
+                footer.style.transform = 'translateY(0)';
+                footer.style.opacity = '1';
+            } else {
+                footer.style.transform = 'translateY(100px)';
+                footer.style.opacity = '0';
+            }
+
+            lastScrollY = currentScrollY;
+        });
+
+        // Initial footer state (hidden)
+        footer.style.transform = 'translateY(100px)';
+        footer.style.opacity = '0';
+
+        // ==========================================
+        // NAVIGATION AND SCROLL CODE
+        // ==========================================
+        const navUl = document.querySelector('#glass-nav ul');
+        const button = document.querySelector('.scroll-button');
+        const track = document.querySelector('.scroll-track');
+
+        // GLASS INTERACTIVE EFFECT - Cursor following light on borders
+        document.getElementById('glass-nav').addEventListener('mousemove', (e) => {
+            const rect = navUl.getBoundingClientRect();
+            const x = Math.round(e.clientX - rect.left);
+            const y = Math.round(e.clientY - rect.top);
+            navUl.style.setProperty('--mouse-x', `${x}px`);
+            navUl.style.setProperty('--mouse-y', `${y}px`);
+        });
+
+        // Apply cursor-following effect to all interactive glass cards
+        const glassCards = document.querySelectorAll('.glass-interactive');
+        glassCards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = Math.round(e.clientX - rect.left);
+                const y = Math.round(e.clientY - rect.top);
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+
+        // UNIVERSAL DRAG LOGIC (Mouse & Touch)
+        let isDragging = false;
+        const start = (e) => { isDragging = true; document.body.style.userSelect = 'none'; };
+        const end = () => { isDragging = false; document.body.style.userSelect = 'auto'; };
+
+        const move = (e) => {
+            if (!isDragging) return;
+            const evt = e.touches ? e.touches[0] : e;
+            const rect = track.getBoundingClientRect();
+            const maxMove = track.offsetHeight - button.offsetHeight;
+
+            let y = evt.clientY - rect.top - (button.offsetHeight / 2);
+            y = Math.max(0, Math.min(y, maxMove));
+
+            button.style.top = `${y}px`;
+            const pct = y / maxMove;
+            window.scrollTo(0, pct * (document.documentElement.scrollHeight - window.innerHeight));
+        };
+
+        button.addEventListener('mousedown', start);
+        window.addEventListener('mouseup', end);
+        window.addEventListener('mousemove', move);
+        button.addEventListener('touchstart', start);
+        window.addEventListener('touchend', end);
+        window.addEventListener('touchmove', move);
+
+        // Sync button position with scroll wheel
+        window.addEventListener('scroll', () => {
+            if (isDragging) return;
+            const total = document.documentElement.scrollHeight - window.innerHeight;
+            const pct = total > 0 ? window.scrollY / total : 0;
+            const maxMove = track.offsetHeight - button.offsetHeight;
+            button.style.top = (pct * maxMove) + 'px';
+        });
+
+        // --- THEME TOGGLE (Light/Dark Mode) ---
+        const themeBtn = document.getElementById('theme-toggle');
+        themeBtn.addEventListener('click', () => {
+            document.body.classList.toggle('light-mode');
+            // Change icon based on mode
+            const icon = themeBtn.querySelector('.theme-icon');
+            icon.textContent = document.body.classList.contains('light-mode') ? '☾' : '☼';
+        });
+
+        // --- TRANSLATION LOGIC ---
+        const langData = {
+            'en': {
+                'discover': 'Discover+',
+                'desc': 'Programmer, based in Luanda'
+            },
+            'pt': {
+                'discover': 'Descobrir+',
+                'desc': 'Programador, residente em Luanda'
+            }
+        };
+
+        function setLanguage(lang) {
+            // 1. Update Nav Link
+            const navLinks = document.querySelectorAll('#glass-nav a');
+            navLinks[2].textContent = langData[lang].discover;
+
+            // 2. Update Footer Text
+            document.querySelector('.footer-desc').textContent = langData[lang].desc;
+
+            // 3. Highlight Active Button
+            document.getElementById('lang-en').style.color = (lang === 'en') ? '#fff' : '#888';
+            document.getElementById('lang-pt').style.color = (lang === 'pt') ? '#fff' : '#888';
+        }
+
+        document.getElementById('lang-en').addEventListener('click', () => setLanguage('en'));
+        document.getElementById('lang-pt').addEventListener('click', () => setLanguage('pt'));
+
+        // Default to English on load
+        setLanguage('en');
+
+        // --- DYNAMIC CONTENT (READ-ONLY) ---
+        function loadDiscover() {
+            const data = JSON.parse(localStorage.getItem('discover_content')) || {};
+            const keys = ['storyContent', 'earlyDaysContent', 'xxxContent', 'wayneContent'];
+
+            keys.forEach(key => {
+                const el = document.getElementById(key);
+                if (el && data[key]) {
+                    // Convert newlines to breaks for display
+                    // Also wrapper in <p> if needed, but <br> is safe for now
+                    el.innerHTML = data[key].replace(/\n/g, '<br>');
+                }
+            });
+        }
+        loadDiscover();
+
+    </script>
+
+
+</body>
+
+</html>
