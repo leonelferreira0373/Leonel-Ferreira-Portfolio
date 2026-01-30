@@ -1,62 +1,427 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="style-sheet.css">
     <title>Leonel Ferreira</title>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+
 <body>
+    <!-- Starfield Background -->
+    <canvas id="starfield"></canvas>
+
     <nav id="glass-nav">
         <ul>
             <div class="pulse-layer"></div>
-            <li><a href="#">Discover+</a></li>
+            <li><a href="Discover+.html">Discover+</a></li>
             <li><a href="#"><img src="IMG/BlackBoxLogo.png" alt="Logo"></a></li>
             <li><a href="#">Products</a></li>
         </ul>
     </nav>
-	
+
     <div class="scroll-track">
         <div class="scroll-button"></div>
     </div>
-	
-    <section class="content-block"><h1>01</h1></section>
-    <section class="content-block"><h1>02</h1></section>
-    <section class="content-block"><h1>03</h1></section>
-    <section class="content-block"><h1>04</h1></section>
-	
-	<footer id="glass-footer">
-    <div class="footer-content">
-		
-        <div class="footer-section">
-            <span class="footer-name">Leonel Ferreira</span>
-            <span class="footer-desc">Programmer, based in Luanda</span>
-        </div>
 
-       <div class="footer-section social-icons">
-            <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://youtube.com/@blackboxstudios1?si=mZwV6yiS-fTfzxJL" target="_blank" class="social-btn"><i class="fab fa-youtube"></i></a>
-        </div>
-			
-		<div class="footer-section footer-controls">
-            <div class="toggle-group">
-                <button class="footer-btn" id="lang-en">EN</button>
-                <button class="footer-btn" id="lang-pt">PT</button>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">Leonel Ferreira</h1>
+            <p class="hero-subtitle">Programmer & Creative Developer</p>
+            <p class="hero-location">Based in Luanda, Angola</p>
+            <div class="hero-cta">
+                <a href="#projects" class="cta-btn primary">View Work</a>
+                <a href="#contact" class="cta-btn secondary">Get in Touch</a>
             </div>
-		</div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll to explore</span>
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
 
-        <div class="toggle-group">
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="section-container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="lead-text">
+                        I'm a passionate programmer based in Luanda, crafting digital experiences
+                        that merge innovative design with powerful functionality.
+                    </p>
+                    <p>
+                        With expertise in web development, creative coding, and modern frameworks,
+                        I transform ideas into elegant solutions. My work focuses on creating
+                        immersive user experiences with attention to detail and performance.
+                    </p>
+                    <p>
+                        When I'm not coding, you'll find me exploring new technologies,
+                        experimenting with 3D graphics, and contributing to the developer community
+                        through my YouTube channel, BlackBox Studios.
+                    </p>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-card glass-interactive">
+                        <i class="fas fa-code"></i>
+                        <h3>Web Development</h3>
+                        <p>HTML, CSS, JavaScript, React, Node.js</p>
+                    </div>
+                    <div class="skill-card glass-interactive">
+                        <i class="fas fa-palette"></i>
+                        <h3>UI/UX Design</h3>
+                        <p>Modern interfaces, animations, glassmorphism</p>
+                    </div>
+                    <div class="skill-card glass-interactive">
+                        <i class="fas fa-cube"></i>
+                        <h3>3D Graphics</h3>
+                        <p>WebGL, Three.js, GLSL shaders</p>
+                    </div>
+                    <div class="skill-card glass-interactive">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h3>Responsive Design</h3>
+                        <p>Mobile-first, cross-platform optimization</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects-section" id="projects">
+        <div class="section-container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card glass-interactive">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <span class="view-project">View Project</span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Discover+ Platform</h3>
+                        <p>An interactive discovery platform with dynamic animations and modern UI</p>
+                        <div class="project-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card glass-interactive">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <span class="view-project">View Project</span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>BlackBox Studios</h3>
+                        <p>Educational content platform showcasing programming tutorials and tech reviews</p>
+                        <div class="project-tags">
+                            <span class="tag">Content Creation</span>
+                            <span class="tag">Video Production</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card glass-interactive">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <span class="view-project">View Project</span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>3D Portfolio Experience</h3>
+                        <p>Immersive portfolio with WebGL shaders and interactive 3D elements</p>
+                        <div class="project-tags">
+                            <span class="tag">WebGL</span>
+                            <span class="tag">GLSL</span>
+                            <span class="tag">Three.js</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dynamic Content Section -->
+    <section class="dynamic-section" id="content">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">Latest Updates</h2>
+            </div>
+            <div class="content-grid" id="contentGrid">
+                <!-- Sample content cards -->
+                <div class="content-card glass-interactive">
+                    <div class="card-header">
+                        <span class="card-date">Jan 2026</span>
+                        <div class="card-actions">
+                            <button class="card-action-btn share-btn" onclick="shareContent(this)"><i
+                                    class="fas fa-share-alt"></i></button>
+                        </div>
+                    </div>
+                    <h3>New Website Launch</h3>
+                    <p>Excited to share my newly redesigned portfolio featuring modern animations and glassmorphism
+                        effects.</p>
+                </div>
+
+                <div class="content-card glass-interactive">
+                    <div class="card-header">
+                        <span class="card-date">Dec 2025</span>
+                        <div class="card-actions">
+                            <button class="card-action-btn share-btn" onclick="shareContent(this)"><i
+                                    class="fas fa-share-alt"></i></button>
+                        </div>
+                    </div>
+                    <h3>YouTube Channel Milestone</h3>
+                    <p>BlackBox Studios just hit a major milestone! Thank you to everyone who's been following along.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="section-container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="contact-intro">Have a project in mind? Let's collaborate and create something amazing together.
+            </p>
+            <div class="contact-methods">
+                <a href="mailto:leonel@example.com" class="contact-card glass-interactive">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <p>leonel@example.com</p>
+                </a>
+                <a href="#" class="contact-card glass-interactive">
+                    <i class="fab fa-linkedin"></i>
+                    <h3>LinkedIn</h3>
+                    <p>Connect with me</p>
+                </a>
+                <a href="https://youtube.com/@blackboxstudios1?si=mZwV6yiS-fTfzxJL" target="_blank"
+                    class="contact-card glass-interactive">
+                    <i class="fab fa-youtube"></i>
+                    <h3>YouTube</h3>
+                    <p>BlackBox Studios</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Modal Removed -->
+
+    <footer id="glass-footer">
+        <div class="footer-content">
+
+            <div class="footer-section">
+                <span class="footer-name">Leonel Ferreira</span>
+                <span class="footer-desc">Programmer, based in Luanda</span>
+            </div>
+
+            <div class="footer-section social-icons">
+                <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://youtube.com/@blackboxstudios1?si=mZwV6yiS-fTfzxJL" target="_blank"
+                    class="social-btn"><i class="fab fa-youtube"></i></a>
+            </div>
+
+            <div class="footer-section footer-controls">
+                <div class="toggle-group">
+                    <button class="footer-btn" id="lang-en">EN</button>
+                    <button class="footer-btn" id="lang-pt">PT</button>
+                </div>
+            </div>
+
+            <div class="toggle-group">
                 <button class="footer-btn" id="theme-toggle">
                     <span class="theme-icon">☼</span>
-			</button>
-		</div>
-		</div>
-		
-</footer>
+                </button>
+            </div>
+        </div>
+
+    </footer>
 
     <script>
+        // ==========================================
+        // STARFIELD BACKGROUND EFFECT
+        // ==========================================
+        const canvas = document.getElementById('starfield');
+        const ctx = canvas.getContext('2d');
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = document.documentElement.scrollHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        // Star particles
+        const stars = [];
+        const starCount = 200;
+        const mouse = { x: null, y: null, radius: 150 };
+
+        // Shooting stars
+        const shootingStars = [];
+
+        class Star {
+            constructor() {
+                this.reset();
+                this.y = Math.random() * canvas.height;
+                this.originalX = this.x;
+                this.originalY = this.y;
+            }
+
+            reset() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 1.5 + 0.5;
+                this.originalX = this.x;
+                this.originalY = this.y;
+                this.vx = 0;
+                this.vy = 0;
+            }
+
+            update() {
+                // Mouse repulsion
+                if (mouse.x !== null && mouse.y !== null) {
+                    const dx = this.x - mouse.x;
+                    const dy = this.y - mouse.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < mouse.radius) {
+                        const force = (mouse.radius - distance) / mouse.radius;
+                        const angle = Math.atan2(dy, dx);
+                        this.vx += Math.cos(angle) * force * 2;
+                        this.vy += Math.sin(angle) * force * 2;
+                    }
+                }
+
+                // Apply velocity
+                this.x += this.vx;
+                this.y += this.vy;
+
+                // Return to original position
+                this.vx += (this.originalX - this.x) * 0.05;
+                this.vy += (this.originalY - this.y) * 0.05;
+
+                // Damping
+                this.vx *= 0.95;
+                this.vy *= 0.95;
+
+                // Keep in bounds
+                if (this.x < 0 || this.x > canvas.width) this.reset();
+                if (this.y < 0 || this.y > canvas.height) this.reset();
+            }
+
+            draw() {
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        class ShootingStar {
+            constructor() {
+                this.reset();
+            }
+
+            reset() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * (canvas.height * 0.5);
+                this.length = Math.random() * 80 + 60;
+                this.speed = Math.random() * 15 + 10;
+                this.angle = Math.PI / 4 + (Math.random() - 0.5) * 0.3;
+                this.opacity = 1;
+                this.life = 0;
+                this.maxLife = Math.random() * 60 + 40;
+            }
+
+            update() {
+                this.x += Math.cos(this.angle) * this.speed;
+                this.y += Math.sin(this.angle) * this.speed;
+                this.life++;
+                this.opacity = 1 - (this.life / this.maxLife);
+
+                if (this.life >= this.maxLife || this.y > canvas.height || this.x > canvas.width) {
+                    this.reset();
+                }
+            }
+
+            draw() {
+                const gradient = ctx.createLinearGradient(
+                    this.x, this.y,
+                    this.x - Math.cos(this.angle) * this.length,
+                    this.y - Math.sin(this.angle) * this.length
+                );
+                gradient.addColorStop(0, `rgba(139, 92, 246, ${this.opacity})`);
+                gradient.addColorStop(0.5, `rgba(167, 139, 250, ${this.opacity * 0.6})`);
+                gradient.addColorStop(1, 'rgba(139, 92, 246, 0)');
+
+                ctx.strokeStyle = gradient;
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                ctx.moveTo(this.x, this.y);
+                ctx.lineTo(
+                    this.x - Math.cos(this.angle) * this.length,
+                    this.y - Math.sin(this.angle) * this.length
+                );
+                ctx.stroke();
+            }
+        }
+
+        // Initialize stars
+        for (let i = 0; i < starCount; i++) {
+            stars.push(new Star());
+        }
+
+        // Mouse tracking
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY + window.scrollY;
+        });
+
+        window.addEventListener('scroll', () => {
+            if (mouse.x !== null) {
+                mouse.y = mouse.y - window.scrollY + window.scrollY;
+            }
+        });
+
+        // Create shooting stars periodically - RARE: once every 60s randomly, max 1 star
+        setInterval(() => {
+            if (Math.random() < 0.02 && shootingStars.length === 0) { // 2% chance, only if no star exists
+                shootingStars.push(new ShootingStar());
+            }
+        }, 1000); // Check every second
+
+        // Animation loop
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Update and draw stars
+            stars.forEach(star => {
+                star.update();
+                star.draw();
+            });
+
+            // Update and draw shooting stars
+            shootingStars.forEach((shootingStar, index) => {
+                shootingStar.update();
+                shootingStar.draw();
+            });
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+
+        // ==========================================
+        // EXISTING NAVIGATION AND SCROLL CODE
+        // ==========================================
         const navUl = document.querySelector('#glass-nav ul');
         const button = document.querySelector('.scroll-button');
         const track = document.querySelector('.scroll-track');
@@ -71,20 +436,32 @@
             navUl.style.setProperty('--mouse-y', `${y}px`);
         });
 
+        // GLASS INTERACTIVE - Apply cursor-following effect to all interactive glass cards
+        const glassCards = document.querySelectorAll('.glass-interactive');
+        glassCards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = Math.round(e.clientX - rect.left);
+                const y = Math.round(e.clientY - rect.top);
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+
         // UNIVERSAL DRAG LOGIC (Mouse & Touch)
         let isDragging = false;
         const start = (e) => { isDragging = true; document.body.style.userSelect = 'none'; };
         const end = () => { isDragging = false; document.body.style.userSelect = 'auto'; };
-        
+
         const move = (e) => {
             if (!isDragging) return;
             const evt = e.touches ? e.touches[0] : e;
             const rect = track.getBoundingClientRect();
             const maxMove = track.offsetHeight - button.offsetHeight;
-            
+
             let y = evt.clientY - rect.top - (button.offsetHeight / 2);
             y = Math.max(0, Math.min(y, maxMove));
-            
+
             button.style.top = `${y}px`;
             const pct = y / maxMove;
             window.scrollTo(0, pct * (document.documentElement.scrollHeight - window.innerHeight));
@@ -105,61 +482,166 @@
             const maxMove = track.offsetHeight - button.offsetHeight;
             button.style.top = (pct * maxMove) + 'px';
         });
-		
-		// --- THEME TOGGLE (Light/Dark Mode) ---
-const themeBtn = document.getElementById('theme-toggle');
-themeBtn.addEventListener('click', () => {
-    document.body.classList.toggle('light-mode');
-    // Change icon based on mode
-    const icon = themeBtn.querySelector('.theme-icon');
-    icon.textContent = document.body.classList.contains('light-mode') ? '☾' : '☼';
-});
 
-// --- TRANSLATION LOGIC ---
-const langData = {
-    'en': {
-        'discover': 'Discover+',
-        'products': 'Products',
-        'desc': 'Programmer, based in Luanda',
-        'legal': 'Privacy Policy | Terms of Use',
-        'rights': 'All Rights Reserved'
-    },
-    'pt': {
-        'discover': 'Descobrir+',
-        'products': 'Produtos',
-        'desc': 'Programador, residente em Luanda',
-        'legal': 'Política de Privacidade | Termos de Uso',
-        'rights': 'Todos os direitos reservados'
-    }
-};
+        // ==========================================
+        // SCROLL-BASED UI BEHAVIORS
+        // ==========================================
+        const nav = document.getElementById('glass-nav');
+        const footer = document.getElementById('glass-footer');
+        let lastScrollY = window.scrollY;
+        let navVisible = true;
 
-function setLanguage(lang) {
-    // 1. Update Nav Links (using their index or adding IDs is best)
-    const navLinks = document.querySelectorAll('#glass-nav a');
-    navLinks[0].textContent = langData[lang].discover;
-    navLinks[2].textContent = langData[lang].products;
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            const scrollingDown = currentScrollY > lastScrollY;
+            const scrollingUp = currentScrollY < lastScrollY;
 
-    // 2. Update Footer Text
-    document.querySelector('.footer-desc').textContent = langData[lang].desc;
-    document.querySelector('.footer-legal p:last-child').textContent = langData[lang].legal;
-    document.querySelector('.footer-legal p:first-child').innerHTML = `&copy; 2024 ${langData[lang].rights}`;
-	// This targets the last section specifically
-	document.querySelector('.footer-legal p:first-child').innerHTML = `&copy; 2024 ${langData[lang].rights}`;
-	document.querySelector('.footer-legal p:last-child').textContent = langData[lang].legal;
+            // NAVIGATION: Hide on scroll down, show on scroll up
+            // Note: maintains translateX(-50%) for centering
+            if (scrollingDown && navVisible && currentScrollY > 100) {
+                nav.style.transform = 'translate(-50%, -150px)';
+                nav.style.opacity = '0';
+                navVisible = false;
+            } else if (scrollingUp && !navVisible) {
+                nav.style.transform = 'translate(-50%, 0)';
+                nav.style.opacity = '1';
+                navVisible = true;
+            }
 
-    // 3. Highlight Active Button
-    document.getElementById('lang-en').style.color = (lang === 'en') ? '#fff' : '#888';
-    document.getElementById('lang-pt').style.color = (lang === 'pt') ? '#fff' : '#888';
-}
+            // FOOTER: Only visible when at the VERY bottom of the page
+            const scrollHeight = document.documentElement.scrollHeight;
+            const scrollPosition = window.scrollY + window.innerHeight;
+            // Strict threshold: only show when within 20px of bottom
+            const atBottom = (scrollHeight - scrollPosition) < 20;
 
-document.getElementById('lang-en').addEventListener('click', () => setLanguage('en'));
-document.getElementById('lang-pt').addEventListener('click', () => setLanguage('pt'));
+            if (atBottom) {
+                footer.style.transform = 'translateY(0)';
+                footer.style.opacity = '1';
+            } else {
+                footer.style.transform = 'translateY(100px)';
+                footer.style.opacity = '0';
+            }
 
-// Default to English on load
-setLanguage('en');
-		
+            lastScrollY = currentScrollY;
+        });
+
+        // Initial footer state (hidden)
+        footer.style.transform = 'translateY(100px)';
+        footer.style.opacity = '0';
+
+        // --- THEME TOGGLE (Light/Dark Mode) ---
+        const themeBtn = document.getElementById('theme-toggle');
+        themeBtn.addEventListener('click', () => {
+            document.body.classList.toggle('light-mode');
+            // Change icon based on mode
+            const icon = themeBtn.querySelector('.theme-icon');
+            icon.textContent = document.body.classList.contains('light-mode') ? '☾' : '☼';
+        });
+
+        // --- TRANSLATION LOGIC ---
+        const langData = {
+            'en': {
+                'discover': 'Discover+',
+                'products': 'Products',
+                'desc': 'Programmer, based in Luanda'
+            },
+            'pt': {
+                'discover': 'Descobrir+',
+                'products': 'Produtos',
+                'desc': 'Programador, residente em Luanda'
+            }
+        };
+
+        function setLanguage(lang) {
+            // 1. Update Nav Links
+            const navLinks = document.querySelectorAll('#glass-nav a');
+            navLinks[0].textContent = langData[lang].discover;
+            navLinks[2].textContent = langData[lang].products;
+
+            // 2. Update Footer Text
+            document.querySelector('.footer-desc').textContent = langData[lang].desc;
+
+            // 3. Highlight Active Button
+            document.getElementById('lang-en').style.color = (lang === 'en') ? '#fff' : '#888';
+            document.getElementById('lang-pt').style.color = (lang === 'pt') ? '#fff' : '#888';
+        }
+
+        document.getElementById('lang-en').addEventListener('click', () => setLanguage('en'));
+        document.getElementById('lang-pt').addEventListener('click', () => setLanguage('pt'));
+
+        // Default to English on load
+        setLanguage('en');
+
+        // --- DYNAMIC CONTENT SECTION (READ-ONLY LOAD) ---
+        function loadUpdates() {
+            const contentGrid = document.getElementById('contentGrid');
+            const updates = JSON.parse(localStorage.getItem('portfolio_updates')) || [];
+
+            if (updates.length > 0) {
+                contentGrid.innerHTML = ''; // Clear defaults if we have data
+
+                updates.forEach(update => {
+                    const card = document.createElement('div');
+                    card.className = 'content-card glass-interactive';
+
+                    // Optional Image
+                    let imgHTML = '';
+                    if (update.img) {
+                        imgHTML = `<img src="${update.img}" alt="Update Image" style="width:100%; border-radius:10px; margin-bottom:15px;">`;
+                    }
+
+                    card.innerHTML = `
+                        ${imgHTML}
+                        <div class="card-header">
+                            <span class="card-date">${update.date}</span>
+                            <div class="card-actions">
+                                <button class="card-action-btn share-btn" onclick="shareContent(this)"><i class="fas fa-share-alt"></i></button>
+                            </div>
+                        </div>
+                        <h3>${update.title}</h3>
+                        <p>${update.desc}</p>
+                    `;
+                    contentGrid.appendChild(card);
+                });
+
+                // Re-apply hover effects
+                bindGlassEffects();
+            }
+        }
+
+        function shareContent(btn) {
+            // Simple share animation/alert
+            const originalIcon = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-check"></i>';
+            setTimeout(() => {
+                btn.innerHTML = originalIcon;
+            }, 2000);
+
+            // Try to copy title to clipboard
+            const card = btn.closest('.content-card');
+            const title = card.querySelector('h3').textContent;
+            navigator.clipboard.writeText(`Check out this update: ${title} - by Leonel Ferreira`);
+        }
+
+        function bindGlassEffects() {
+            const glassCards = document.querySelectorAll('.glass-interactive');
+            glassCards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = Math.round(e.clientX - rect.left);
+                    const y = Math.round(e.clientY - rect.top);
+                    card.style.setProperty('--mouse-x', `${x}px`);
+                    card.style.setProperty('--mouse-y', `${y}px`);
+                });
+            });
+        }
+
+        // Init
+        loadUpdates();
+
     </script>
-	
-	
+
+
 </body>
+
 </html>
