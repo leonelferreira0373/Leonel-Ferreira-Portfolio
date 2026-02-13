@@ -545,9 +545,11 @@
         };
 
         function setLanguage(lang) {
-            // Update Nav Link
+            // Update Nav Link (index 0 - only one nav link)
             const navLinks = document.querySelectorAll('#glass-nav a');
-            navLinks[1].textContent = langData[lang].products;
+            if (navLinks[0]) {
+                navLinks[0].innerHTML = '<i class="fas fa-arrow-left"></i> ' + langData[lang].products;
+            }
 
             // Update Footer Text
             document.querySelector('.footer-desc').textContent = langData[lang].desc;
@@ -597,31 +599,36 @@
                 title: "JAVA Programming Guide",
                 description: "Master Java programming from basics to advanced concepts. Learn object-oriented programming, data structures, and build real-world applications.",
                 price: "$34.99",
-                image: "IMG/JAVA E-Book Cover.png"
+                image: "IMG/JAVA E-Book Cover.png",
+                buttonText: "Get Ebook"
             },
             {
                 title: "Kotlin Development",
                 description: "Modern Android development with Kotlin. Build powerful mobile applications with the latest techniques and best practices.",
                 price: "$39.99",
-                image: "IMG/KOTLIN E-Book Cover.png"
+                image: "IMG/KOTLIN E-Book Cover.png",
+                buttonText: "Get Ebook"
             },
             {
                 title: "MySQL Database Mastery",
                 description: "Complete guide to MySQL database design, optimization, and advanced queries. Perfect for developers and DBAs.",
                 price: "$29.99",
-                image: "IMG/MY SQL E-Book Cover.png"
+                image: "IMG/MY SQL E-Book Cover.png",
+                buttonText: "Get Ebook"
             },
             {
                 title: "HTML5 Modern Web",
                 description: "Build modern, semantic websites with HTML5. Learn all the latest features and best practices for web development.",
                 price: "$24.99",
-                image: "IMG/HTML E-Book Cover.png"
+                image: "IMG/HTML E-Book Cover.png",
+                buttonText: "Get Ebook"
             },
             {
                 title: "JavaScript Complete Guide",
                 description: "From basics to advanced JavaScript. Master ES6+, async programming, and modern frameworks for professional development.",
                 price: "$32.99",
-                image: "IMG/Java Script E-Book Cover.png"
+                image: "IMG/Java Script E-Book Cover.png",
+                buttonText: "Get Ebook"
             }
         ];
 
@@ -636,10 +643,16 @@
             const img = document.getElementById('ebook-image');
             if (ebook.image) {
                 img.src = ebook.image;
+                img.alt = ebook.title + ' Cover';
                 img.style.display = 'block';
             } else {
+                img.src = '';
                 img.style.display = 'none';
             }
+
+            const btn = document.getElementById('ebook-btn');
+            btn.textContent = ebook.buttonText || 'Get Access';
+            btn.onclick = () => window.open(WHATSAPP_LINK, '_blank');
 
             document.querySelectorAll('.indicator-ebook').forEach((dot, i) => {
                 dot.classList.toggle('active', i === index);
@@ -660,9 +673,6 @@
                 updateEbookCarousel(currentEbookIndex);
             });
         });
-        document.getElementById('ebook-btn').addEventListener('click', () => {
-            contactForProduct(ebooksData[currentEbookIndex].title, ebooksData[currentEbookIndex].price);
-        });
 
         // ==========================================
         // MERCH CAROUSEL
@@ -678,19 +688,22 @@
                 title: "BlackBox Hoodie",
                 description: "Premium quality hoodie with BlackBox Studios logo. Available in multiple sizes and colors.",
                 price: "$49.99",
-                image: ""
+                image: "",
+                buttonText: "Order Now"
             },
             {
                 title: "BlackBox T-Shirt",
                 description: "Comfortable cotton t-shirt with exclusive BlackBox design. Perfect for everyday wear.",
                 price: "$29.99",
-                image: ""
+                image: "",
+                buttonText: "Order Now"
             },
             {
                 title: "BlackBox Mug",
                 description: "Ceramic mug with BlackBox Studios branding. Great for coffee or tea lovers.",
                 price: "$14.99",
-                image: ""
+                image: "",
+                buttonText: "Order Now"
             }
         ];
 
@@ -705,10 +718,16 @@
             const img = document.getElementById('merch-image');
             if (merch.image) {
                 img.src = merch.image;
+                img.alt = merch.title;
                 img.style.display = 'block';
             } else {
+                img.src = '';
                 img.style.display = 'none';
             }
+
+            const btn = document.getElementById('merch-btn');
+            btn.textContent = merch.buttonText || 'Get Access';
+            btn.onclick = () => window.open(WHATSAPP_LINK, '_blank');
 
             document.querySelectorAll('.indicator-merch').forEach((dot, i) => {
                 dot.classList.toggle('active', i === index);
@@ -729,9 +748,6 @@
                 updateMerchCarousel(currentMerchIndex);
             });
         });
-        document.getElementById('merch-btn').addEventListener('click', () => {
-            contactForProduct(merchData[currentMerchIndex].title, merchData[currentMerchIndex].price);
-        });
 
         // ==========================================
         // COURSES CAROUSEL
@@ -749,21 +765,24 @@
                 description: "Complete bootcamp covering front-end and back-end development with real-world projects.",
                 price: "$199.99",
                 icon: "fas fa-graduation-cap",
-                image: ""
+                image: "",
+                buttonText: "Enroll Now"
             },
             {
                 title: "UI/UX Design Fundamentals",
                 description: "Learn to create stunning user interfaces with modern design principles and glassmorphism.",
                 price: "$149.99",
                 icon: "fas fa-paint-brush",
-                image: ""
+                image: "",
+                buttonText: "Enroll Now"
             },
             {
                 title: "3D Web Graphics with Three.js",
                 description: "Build immersive 3D experiences on the web using WebGL and Three.js framework.",
                 price: "$179.99",
                 icon: "fas fa-cube",
-                image: ""
+                image: "",
+                buttonText: "Enroll Now"
             }
         ];
 
@@ -788,6 +807,10 @@
                 imgEl.style.display = 'none';
             }
 
+            const btn = document.getElementById('course-btn');
+            btn.textContent = course.buttonText || 'Get Access';
+            btn.onclick = () => window.open(WHATSAPP_LINK, '_blank');
+
             document.querySelectorAll('.courses-carousel-section .indicator').forEach((dot, i) => {
                 dot.classList.toggle('active', i === index);
             });
@@ -806,9 +829,6 @@
                 currentCourseIndex = parseInt(dot.getAttribute('data-index'));
                 updateCourseCarousel(currentCourseIndex);
             });
-        });
-        document.getElementById('course-btn').addEventListener('click', () => {
-            contactForProduct(coursesData[currentCourseIndex].title, coursesData[currentCourseIndex].price);
         });
 
         // ==========================================
