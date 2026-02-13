@@ -196,8 +196,15 @@
             <div class="footer-section">
                 <span class="footer-name">Admin Panel</span>
             </div>
+            <div class="footer-section footer-controls">
+                <div class="toggle-group">
+                    <button class="footer-btn" id="lang-en">EN</button>
+                    <button class="footer-btn" id="lang-pt">PT</button>
+                </div>
+            </div>
         </div>
     </footer>
+    <script src="js/translations.js"></script>
 
     <script>
         // ==========================================
@@ -368,6 +375,7 @@
         }
         animate();
 
+        if (typeof initLanguage === 'function') initLanguage('admin');
     </script>
 </body>
 

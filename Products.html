@@ -57,14 +57,8 @@
                         </div>
                     </div>
 
-                    <!-- Carousel Indicators -->
-                    <div class="carousel-indicators">
-                        <span class="indicator-ebook active" data-index="0"></span>
-                        <span class="indicator-ebook" data-index="1"></span>
-                        <span class="indicator-ebook" data-index="2"></span>
-                        <span class="indicator-ebook" data-index="3"></span>
-                        <span class="indicator-ebook" data-index="4"></span>
-                    </div>
+                    <!-- Carousel Indicators - auto-generated from ebooksData -->
+                    <div class="carousel-indicators" id="ebook-indicators"></div>
                 </div>
 
                 <!-- Right Navigation Button -->
@@ -159,12 +153,8 @@
                         </div>
                     </div>
 
-                    <!-- Carousel Indicators -->
-                    <div class="carousel-indicators">
-                        <span class="indicator-merch active" data-index="0"></span>
-                        <span class="indicator-merch" data-index="1"></span>
-                        <span class="indicator-merch" data-index="2"></span>
-                    </div>
+                    <!-- Carousel Indicators - auto-generated from merchData -->
+                    <div class="carousel-indicators" id="merch-indicators"></div>
                 </div>
 
                 <!-- Right Navigation Button -->
@@ -227,7 +217,7 @@
 
             <div class="footer-section social-icons">
                 <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.linkedin.com/in/leonel-ferreira-b14742229" target="_blank" rel="noopener noreferrer" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
                 <a href="https://youtube.com/@blackboxstudios1?si=mZwV6yiS-fTfzxJL" target="_blank"
                     class="social-btn"><i class="fab fa-youtube"></i></a>
             </div>
@@ -249,6 +239,7 @@
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="js/translations.js"></script>
     <script>
         // ==========================================
         // STARFIELD BACKGROUND EFFECT
@@ -532,38 +523,12 @@
             icon.textContent = document.body.classList.contains('light-mode') ? '☾' : '☼';
         });
 
-        // --- TRANSLATION LOGIC ---
-        const langData = {
-            'en': {
-                'products': 'PRODUCTS',
-                'desc': 'Programmer, based in Luanda'
-            },
-            'pt': {
-                'products': 'PRODUTOS',
-                'desc': 'Programador, residente em Luanda'
-            }
+        // --- TRANSLATION (uses js/translations.js) ---
+        window.onLanguageChange = function () {
+            if (typeof updateEbookCarousel === 'function') updateEbookCarousel(currentEbookIndex);
+            if (typeof updateMerchCarousel === 'function') updateMerchCarousel(currentMerchIndex);
+            if (typeof updateCourseCarousel === 'function') updateCourseCarousel(currentCourseIndex);
         };
-
-        function setLanguage(lang) {
-            // Update Nav Link (index 0 - only one nav link)
-            const navLinks = document.querySelectorAll('#glass-nav a');
-            if (navLinks[0]) {
-                navLinks[0].innerHTML = '<i class="fas fa-arrow-left"></i> ' + langData[lang].products;
-            }
-
-            // Update Footer Text
-            document.querySelector('.footer-desc').textContent = langData[lang].desc;
-
-            // Highlight Active Button
-            document.getElementById('lang-en').style.color = (lang === 'en') ? '#fff' : '#888';
-            document.getElementById('lang-pt').style.color = (lang === 'pt') ? '#fff' : '#888';
-        }
-
-        document.getElementById('lang-en').addEventListener('click', () => setLanguage('en'));
-        document.getElementById('lang-pt').addEventListener('click', () => setLanguage('pt'));
-
-        // Default to English on load
-        setLanguage('en');
 
         // ==========================================
         // WHATSAPP LINK - All buttons use this
@@ -588,62 +553,96 @@
         // ==========================================
         // EBOOKS CAROUSEL
         // ==========================================
-        // TO EDIT: Modify ebooksData array below
-        // - title: Ebook name
-        // - description: What the ebook covers
-        // - price: Price text
-        // - image: Path to cover image (e.g. "IMG/JAVA E-Book Cover.png")
-        // ==========================================
+        // ADD NEW EBOOK: Copy the block below, paste it inside the array (before ];)
+        // Then just change the image path - put your image in IMG/ and paste: "IMG/your-file.png"
+        // ----------------------------------------------------------------
+        // {
+        //     title: "Your Ebook Title",
+        //     description: "Short description of the ebook.",
+        //     price: "$29.99",
+        //     image: "IMG/your-cover.png",   // <-- PASTE YOUR IMAGE PATH HERE (e.g. "IMG/NewBook.png")
+        //     buttonText: "Get Ebook"
+        // },
+        // ----------------------------------------------------------------
         const ebooksData = [
             {
                 title: "JAVA Programming Guide",
+                titlePt: "Guia de Programação JAVA",
                 description: "Master Java programming from basics to advanced concepts. Learn object-oriented programming, data structures, and build real-world applications.",
+                descriptionPt: "Domine a programação Java do básico ao avançado. Aprenda programação orientada a objetos, estruturas de dados e construa aplicações reais.",
                 price: "$34.99",
                 image: "IMG/JAVA E-Book Cover.png",
-                buttonText: "Get Ebook"
+                buttonText: "Get Ebook",
+                buttonTextPt: "Obter Ebook"
             },
             {
                 title: "Kotlin Development",
+                titlePt: "Desenvolvimento Kotlin",
                 description: "Modern Android development with Kotlin. Build powerful mobile applications with the latest techniques and best practices.",
+                descriptionPt: "Desenvolvimento Android moderno com Kotlin. Construa aplicações móveis poderosas com as mais recentes técnicas e melhores práticas.",
                 price: "$39.99",
                 image: "IMG/KOTLIN E-Book Cover.png",
-                buttonText: "Get Ebook"
+                buttonText: "Get Ebook",
+                buttonTextPt: "Obter Ebook"
             },
             {
                 title: "MySQL Database Mastery",
+                titlePt: "Domínio de Bases de Dados MySQL",
                 description: "Complete guide to MySQL database design, optimization, and advanced queries. Perfect for developers and DBAs.",
+                descriptionPt: "Guia completo para design, otimização e consultas avançadas de bases de dados MySQL. Perfeito para programadores e DBAs.",
                 price: "$29.99",
                 image: "IMG/MY SQL E-Book Cover.png",
-                buttonText: "Get Ebook"
+                buttonText: "Get Ebook",
+                buttonTextPt: "Obter Ebook"
             },
             {
                 title: "HTML5 Modern Web",
+                titlePt: "HTML5 Web Moderna",
                 description: "Build modern, semantic websites with HTML5. Learn all the latest features and best practices for web development.",
+                descriptionPt: "Construa sites modernos e semânticos com HTML5. Aprenda todas as funcionalidades mais recentes e melhores práticas.",
                 price: "$24.99",
                 image: "IMG/HTML E-Book Cover.png",
-                buttonText: "Get Ebook"
+                buttonText: "Get Ebook",
+                buttonTextPt: "Obter Ebook"
             },
             {
                 title: "JavaScript Complete Guide",
+                titlePt: "Guia Completo de JavaScript",
                 description: "From basics to advanced JavaScript. Master ES6+, async programming, and modern frameworks for professional development.",
+                descriptionPt: "Do básico ao JavaScript avançado. Domine ES6+, programação assíncrona e frameworks modernos para desenvolvimento profissional.",
                 price: "$32.99",
                 image: "IMG/Java Script E-Book Cover.png",
-                buttonText: "Get Ebook"
+                buttonText: "Get Ebook",
+                buttonTextPt: "Obter Ebook"
             }
+            // ADD MORE EBOOKS ABOVE - copy template from top of EBOOKS section
         ];
 
         let currentEbookIndex = 0;
 
+        // Build ebook indicators from data length (so new items get dots automatically)
+        const ebookIndicatorsEl = document.getElementById('ebook-indicators');
+        ebooksData.forEach((_, i) => {
+            const dot = document.createElement('span');
+            dot.className = 'indicator-ebook' + (i === 0 ? ' active' : '');
+            dot.setAttribute('data-index', i);
+            ebookIndicatorsEl.appendChild(dot);
+        });
+
         function updateEbookCarousel(index) {
             const ebook = ebooksData[index];
-            document.getElementById('ebook-title').textContent = ebook.title;
-            document.getElementById('ebook-description').textContent = ebook.description;
+            const lang = window.currentLang || 'en';
+            const t = ebook.titlePt ? (lang === 'pt' ? ebook.titlePt : ebook.title) : ebook.title;
+            const d = ebook.descriptionPt ? (lang === 'pt' ? ebook.descriptionPt : ebook.description) : ebook.description;
+            const b = ebook.buttonTextPt ? (lang === 'pt' ? ebook.buttonTextPt : ebook.buttonText) : (ebook.buttonText || 'Get Access');
+            document.getElementById('ebook-title').textContent = t;
+            document.getElementById('ebook-description').textContent = d;
             document.getElementById('ebook-price').textContent = ebook.price;
 
             const img = document.getElementById('ebook-image');
             if (ebook.image) {
                 img.src = ebook.image;
-                img.alt = ebook.title + ' Cover';
+                img.alt = t + ' Cover';
                 img.style.display = 'block';
             } else {
                 img.src = '';
@@ -651,7 +650,7 @@
             }
 
             const btn = document.getElementById('ebook-btn');
-            btn.textContent = ebook.buttonText || 'Get Access';
+            btn.textContent = b;
             btn.onclick = () => window.open(WHATSAPP_LINK, '_blank');
 
             document.querySelectorAll('.indicator-ebook').forEach((dot, i) => {
@@ -675,44 +674,72 @@
         });
 
         // ==========================================
-        // MERCH CAROUSEL
+        // CLOTHES / MERCH CAROUSEL
         // ==========================================
-        // TO EDIT: Modify merchData array below
-        // - title: Item name
-        // - description: Item details
-        // - price: Price text
-        // - image: Path to image (e.g. "IMG/hoodie.png")
-        // ==========================================
+        // ADD NEW ITEM: Copy the block below, paste it inside the array (before ];)
+        // Then just change the image path - put your image in IMG/ and paste: "IMG/your-file.png"
+        // ----------------------------------------------------------------
+        // {
+        //     title: "Item Name",
+        //     description: "Short description of the item.",
+        //     price: "$29.99",
+        //     image: "IMG/your-item.png",   // <-- PASTE YOUR IMAGE PATH HERE (e.g. "IMG/hoodie.png")
+        //     buttonText: "Order Now"
+        // },
+        // ----------------------------------------------------------------
         const merchData = [
             {
                 title: "BlackBox Hoodie",
+                titlePt: "Sweat BlackBox",
                 description: "Premium quality hoodie with BlackBox Studios logo. Available in multiple sizes and colors.",
+                descriptionPt: "Sweat de qualidade premium com o logótipo BlackBox Studios. Disponível em vários tamanhos e cores.",
                 price: "$49.99",
                 image: "",
-                buttonText: "Order Now"
+                buttonText: "Order Now",
+                buttonTextPt: "Encomendar"
             },
             {
                 title: "BlackBox T-Shirt",
+                titlePt: "T-Shirt BlackBox",
                 description: "Comfortable cotton t-shirt with exclusive BlackBox design. Perfect for everyday wear.",
+                descriptionPt: "T-shirt de algodão confortável com design exclusivo BlackBox. Perfeita para uso diário.",
                 price: "$29.99",
                 image: "",
-                buttonText: "Order Now"
+                buttonText: "Order Now",
+                buttonTextPt: "Encomendar"
             },
             {
                 title: "BlackBox Mug",
+                titlePt: "Caneca BlackBox",
                 description: "Ceramic mug with BlackBox Studios branding. Great for coffee or tea lovers.",
+                descriptionPt: "Caneca de cerâmica com marca BlackBox Studios. Ideal para amantes de café ou chá.",
                 price: "$14.99",
                 image: "",
-                buttonText: "Order Now"
+                buttonText: "Order Now",
+                buttonTextPt: "Encomendar"
             }
+            // ADD MORE CLOTHES/MERCH ABOVE - copy template from top of CLOTHES section
         ];
 
         let currentMerchIndex = 0;
 
+        // Build merch indicators from data length (so new items get dots automatically)
+        const merchIndicatorsEl = document.getElementById('merch-indicators');
+        merchData.forEach((_, i) => {
+            const dot = document.createElement('span');
+            dot.className = 'indicator-merch' + (i === 0 ? ' active' : '');
+            dot.setAttribute('data-index', i);
+            merchIndicatorsEl.appendChild(dot);
+        });
+
         function updateMerchCarousel(index) {
             const merch = merchData[index];
-            document.getElementById('merch-title').textContent = merch.title;
-            document.getElementById('merch-description').textContent = merch.description;
+            const lang = window.currentLang || 'en';
+            const t = merch.titlePt ? (lang === 'pt' ? merch.titlePt : merch.title) : merch.title;
+            const d = merch.descriptionPt ? (lang === 'pt' ? merch.descriptionPt : merch.description) : merch.description;
+            const b = merch.buttonTextPt ? (lang === 'pt' ? merch.buttonTextPt : merch.buttonText) : (merch.buttonText || 'Get Access');
+            document.getElementById('merch-title').textContent = t;
+            document.getElementById('merch-description').textContent = d;
             document.getElementById('merch-price').textContent = merch.price;
 
             const img = document.getElementById('merch-image');
@@ -726,7 +753,7 @@
             }
 
             const btn = document.getElementById('merch-btn');
-            btn.textContent = merch.buttonText || 'Get Access';
+            btn.textContent = b;
             btn.onclick = () => window.open(WHATSAPP_LINK, '_blank');
 
             document.querySelectorAll('.indicator-merch').forEach((dot, i) => {
@@ -762,27 +789,36 @@
         const coursesData = [
             {
                 title: "Full-Stack Web Development",
+                titlePt: "Desenvolvimento Web Full-Stack",
                 description: "Complete bootcamp covering front-end and back-end development with real-world projects.",
+                descriptionPt: "Bootcamp completo cobrindo desenvolvimento front-end e back-end com projetos reais.",
                 price: "$199.99",
                 icon: "fas fa-graduation-cap",
                 image: "",
-                buttonText: "Enroll Now"
+                buttonText: "Enroll Now",
+                buttonTextPt: "Inscrever-se"
             },
             {
                 title: "UI/UX Design Fundamentals",
+                titlePt: "Fundamentos de Design UI/UX",
                 description: "Learn to create stunning user interfaces with modern design principles and glassmorphism.",
+                descriptionPt: "Aprenda a criar interfaces de utilizador impressionantes com princípios de design modernos e glassmorfismo.",
                 price: "$149.99",
                 icon: "fas fa-paint-brush",
                 image: "",
-                buttonText: "Enroll Now"
+                buttonText: "Enroll Now",
+                buttonTextPt: "Inscrever-se"
             },
             {
                 title: "3D Web Graphics with Three.js",
+                titlePt: "Gráficos 3D Web com Three.js",
                 description: "Build immersive 3D experiences on the web using WebGL and Three.js framework.",
+                descriptionPt: "Construa experiências 3D imersivas na web usando WebGL e o framework Three.js.",
                 price: "$179.99",
                 icon: "fas fa-cube",
                 image: "",
-                buttonText: "Enroll Now"
+                buttonText: "Enroll Now",
+                buttonTextPt: "Inscrever-se"
             }
         ];
 
@@ -790,8 +826,12 @@
 
         function updateCourseCarousel(index) {
             const course = coursesData[index];
-            document.getElementById('course-title').textContent = course.title;
-            document.getElementById('course-description').textContent = course.description;
+            const lang = window.currentLang || 'en';
+            const t = course.titlePt ? (lang === 'pt' ? course.titlePt : course.title) : course.title;
+            const d = course.descriptionPt ? (lang === 'pt' ? course.descriptionPt : course.description) : course.description;
+            const b = course.buttonTextPt ? (lang === 'pt' ? course.buttonTextPt : course.buttonText) : (course.buttonText || 'Get Access');
+            document.getElementById('course-title').textContent = t;
+            document.getElementById('course-description').textContent = d;
             document.getElementById('course-price').textContent = course.price;
 
             const iconEl = document.getElementById('course-icon');
@@ -808,7 +848,7 @@
             }
 
             const btn = document.getElementById('course-btn');
-            btn.textContent = course.buttonText || 'Get Access';
+            btn.textContent = b;
             btn.onclick = () => window.open(WHATSAPP_LINK, '_blank');
 
             document.querySelectorAll('.courses-carousel-section .indicator').forEach((dot, i) => {
@@ -838,6 +878,8 @@
         updateMerchCarousel(0);
         updateCourseCarousel(0);
 
+        // Apply stored language (EN/PT) - persists across all pages
+        if (typeof initLanguage === 'function') initLanguage('products');
     </script>
 
 

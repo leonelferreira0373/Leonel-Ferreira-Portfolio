@@ -203,18 +203,19 @@
                     <i class="fas fa-envelope"></i>
                     <h3>Email</h3>
                     <p>ferreira.korp@gmail.com</p>
-                    <a href="https://www.linkedin.com/in/leonel-ferreira-b14742229" target="_blank"
-                        rel="noopener noreferrer" class="contact-card glass-interactive">
-                        <i class="fab fa-linkedin"></i>
-                        <h3>LinkedIn</h3>
-                        <p>Connect with me</p>
-                    </a>
-                    <a href="https://youtube.com/@blackboxstudios1?si=mZwV6yiS-fTfzxJL" target="_blank"
-                        class="contact-card glass-interactive">
-                        <i class="fab fa-youtube"></i>
-                        <h3>YouTube</h3>
-                        <p>BlackBox Studios</p>
-                    </a>
+                </a>
+                <a href="https://www.linkedin.com/in/leonel-ferreira-b14742229" target="_blank"
+                    rel="noopener noreferrer" class="contact-card glass-interactive">
+                    <i class="fab fa-linkedin"></i>
+                    <h3>LinkedIn</h3>
+                    <p>Connect with me</p>
+                </a>
+                <a href="https://youtube.com/@blackboxstudios1?si=mZwV6yiS-fTfzxJL" target="_blank"
+                    class="contact-card glass-interactive">
+                    <i class="fab fa-youtube"></i>
+                    <h3>YouTube</h3>
+                    <p>BlackBox Studios</p>
+                </a>
             </div>
         </div>
     </section>
@@ -253,6 +254,7 @@
 
     </footer>
 
+    <script src="js/translations.js"></script>
     <script>
         // ==========================================
         // STARFIELD BACKGROUND EFFECT
@@ -546,39 +548,9 @@
             icon.textContent = document.body.classList.contains('light-mode') ? '☾' : '☼';
         });
 
-        // --- TRANSLATION LOGIC ---
-        const langData = {
-            'en': {
-                'discover': 'Discover+',
-                'products': 'Products',
-                'desc': 'Programmer, based in Luanda'
-            },
-            'pt': {
-                'discover': 'Descobrir+',
-                'products': 'Produtos',
-                'desc': 'Programador, residente em Luanda'
-            }
-        };
-
-        function setLanguage(lang) {
-            // 1. Update Nav Links
-            const navLinks = document.querySelectorAll('#glass-nav a');
-            navLinks[0].textContent = langData[lang].discover;
-            navLinks[2].textContent = langData[lang].products;
-
-            // 2. Update Footer Text
-            document.querySelector('.footer-desc').textContent = langData[lang].desc;
-
-            // 3. Highlight Active Button
-            document.getElementById('lang-en').style.color = (lang === 'en') ? '#fff' : '#888';
-            document.getElementById('lang-pt').style.color = (lang === 'pt') ? '#fff' : '#888';
-        }
-
-        document.getElementById('lang-en').addEventListener('click', () => setLanguage('en'));
-        document.getElementById('lang-pt').addEventListener('click', () => setLanguage('pt'));
-
-        // Default to English on load
-        setLanguage('en');
+        // --- TRANSLATION (load from shared script, persist across pages) ---
+        // translations.js must be loaded before this (see script tag in head/body)
+        // initLanguage is called at end of script
 
         // --- DYNAMIC CONTENT SECTION (READ-ONLY LOAD) ---
         function loadUpdates() {
@@ -644,9 +616,11 @@
             });
         }
 
-        // Init
+        // Init: apply language first, then load updates (so defaults get translated)
+        if (typeof initLanguage === 'function') initLanguage('index');
         loadUpdates();
-
+        // Re-apply translations after loadUpdates (fixes dynamic content + ensures contact cards stay translated)
+        if (typeof applyTranslations === 'function') applyTranslations('index', getStoredLang ? getStoredLang() : 'en');
     </script>
 
 
