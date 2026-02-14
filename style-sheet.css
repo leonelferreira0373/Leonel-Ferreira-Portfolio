@@ -953,9 +953,9 @@ nav ul li a:hover img {
     filter: brightness(1.8) drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
 }
 
-.social-btn:hover .fa-facebook-f {
-    color: #1877f2;
-    filter: drop-shadow(0 0 5px #1877f2);
+.social-btn:hover .fa-github {
+    color: #ffffff;
+    filter: drop-shadow(0 0 5px #ffffff);
 }
 
 .social-btn:hover .fa-linkedin-in {

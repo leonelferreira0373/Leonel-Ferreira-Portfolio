@@ -456,9 +456,9 @@ nav ul li a.active {
     filter: brightness(1.8) drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
 }
 
-.social-btn:hover .fa-facebook-f {
-    color: #1877f2;
-    filter: drop-shadow(0 0 5px #1877f2);
+.social-btn:hover .fa-github {
+    color: #ffffff;
+    filter: drop-shadow(0 0 5px #ffffff);
 }
 
 .social-btn:hover .fa-linkedin-in {
@@ -553,7 +553,8 @@ nav ul li a.active {
     gap: 40px;
     max-width: 900px;
     margin: 0 auto;
-    padding: 0 60px; /* Space for arrows inside container */
+    padding: 0 60px;
+    /* Space for arrows inside container */
 }
 
 /* Navigation Buttons (Glass Style) - Positioned inside container, not at screen edge */
@@ -580,7 +581,8 @@ nav ul li a.active {
     justify-content: center;
     flex-shrink: 0;
     z-index: 10;
-    touch-action: manipulation; /* Better tap on mobile */
+    touch-action: manipulation;
+    /* Better tap on mobile */
 }
 
 .carousel-nav-btn:hover {
@@ -796,7 +798,8 @@ nav ul li a.active {
     /* Carousel Mobile Adjustments - arrows stay inside with padding, not at screen edge */
     .carousel-container {
         gap: 20px;
-        padding: 0 50px; /* Space for arrows inside on mobile */
+        padding: 0 50px;
+        /* Space for arrows inside on mobile */
     }
 
     .carousel-nav-btn {
