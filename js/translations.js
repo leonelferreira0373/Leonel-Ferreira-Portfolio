@@ -40,8 +40,8 @@
             viewProject: { en: 'View Project', pt: 'Ver Projeto' },
             projectDiscover: { en: 'Discover+ Platform', pt: 'Plataforma Discover+' },
             projectDiscoverDesc: { en: 'An interactive discovery platform with dynamic animations and modern UI', pt: 'Uma plataforma interativa de descoberta com animações dinâmicas e UI moderna' },
-            projectBlackBox: { en: 'BlackBox Studios', pt: 'BlackBox Studios' },
-            projectBlackBoxDesc: { en: 'Educational content platform showcasing programming tutorials and tech reviews', pt: 'Plataforma de conteúdo educacional com tutoriais de programação e análises de tecnologia' },
+            projectOrizonte: { en: 'Orizonte Logistica', pt: 'Orizonte Logística' },
+            projectOrizonteDesc: { en: 'A premier global logistics provider specializing in end-to-end supply chain management, high-efficiency freight forwarding, and data-driven transportation solutions. We bridge continents through precision and reliability.', pt: 'A Orizonte Logística é um parceiro estratégico em soluções de transporte e gestão de carga, focado em unir mercados globais com eficiência e segurança. Com uma presença sólida no eixo Luanda, Lisboa e Houston, especializamo-nos em serviços de frete premium que garantem o fluxo contínuo de mercadorias entre os principais centros comerciais do mundo.' },
             projectRoast: { en: 'Roast & Donut', pt: 'Roast & Donut' },
             projectRoastDesc: { en: 'A Blog post website where users can freely share their thoughts and opinions on various topics, fostering open discussions and diverse perspectives.', pt: 'Um site de blog onde os utilizadores podem partilhar livremente pensamentos e opiniões sobre vários tópicos, promovendo discussões abertas e perspetivas diversas.' },
             latestUpdates: { en: 'Latest Updates', pt: 'Últimas Atualizações' },
@@ -154,8 +154,8 @@
             ['.project-card .view-project', 'viewProject', 'text', true],
             ['.projects-grid .project-card:nth-child(1) .project-info h3', 'projectDiscover'],
             ['.projects-grid .project-card:nth-child(1) .project-info p', 'projectDiscoverDesc'],
-            ['.projects-grid .project-card:nth-child(2) .project-info h3', 'projectBlackBox'],
-            ['.projects-grid .project-card:nth-child(2) .project-info p', 'projectBlackBoxDesc'],
+            ['.projects-grid .project-card:nth-child(2) .project-info h3', 'projectOrizonte'],
+            ['.projects-grid .project-card:nth-child(2) .project-info p', 'projectOrizonteDesc'],
             ['.projects-grid .project-card:nth-child(3) .project-info h3', 'projectRoast'],
             ['.projects-grid .project-card:nth-child(3) .project-info p', 'projectRoastDesc'],
             ['.dynamic-section .section-title', 'latestUpdates'],
@@ -246,16 +246,16 @@
             if (!t[key] || !t[key][lang]) return;
             els.forEach(function (el) {
                 if (!el) return;
-            if (attr === 'placeholder') el.placeholder = t[key][lang];
-            else if (attr === 'aria-label') el.setAttribute('aria-label', t[key][lang]);
-            else if (attr === 'story') el.innerHTML = '<p>' + (t[key][lang] || '').replace(/\n/g, '<br>') + '</p>';
-            else if (attr === 'text') {
-                if (selector.includes('glass-nav') && (pageId === 'products' || pageId === 'discover')) {
-                    el.innerHTML = '<i class="fas fa-arrow-left"></i> ' + t[key][lang];
-                } else {
-                    el.textContent = t[key][lang];
+                if (attr === 'placeholder') el.placeholder = t[key][lang];
+                else if (attr === 'aria-label') el.setAttribute('aria-label', t[key][lang]);
+                else if (attr === 'story') el.innerHTML = '<p>' + (t[key][lang] || '').replace(/\n/g, '<br>') + '</p>';
+                else if (attr === 'text') {
+                    if (selector.includes('glass-nav') && (pageId === 'products' || pageId === 'discover')) {
+                        el.innerHTML = '<i class="fas fa-arrow-left"></i> ' + t[key][lang];
+                    } else {
+                        el.textContent = t[key][lang];
+                    }
                 }
-            }
             });
         });
     };
