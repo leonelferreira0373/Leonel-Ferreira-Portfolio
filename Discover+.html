@@ -1,0 +1,501 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="style-sheet-Discover+.css">
+    <title>Discover+ | Leonel Ferreira</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Starfield Background -->
+    <canvas id="starfield"></canvas>
+
+    <nav id="glass-nav">
+        <ul>
+            <div class="nav-glow"></div>
+            <li><a href="index.html" class="active discover-nav-link"><i class="fas fa-arrow-left"></i> Discover+</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="scroll-track">
+        <div class="scroll-button"></div>
+    </div>
+
+    <!-- About Me Section -->
+    <section class="about-me-section">
+        <div class="section-container">
+            <h2 class="section-title">About Me</h2>
+
+            <!--
+            ADD NEW STORY CARD: Copy from <div to </div>, paste after any card. Change img src, h3, and <p>.
+            ---
+            <div class="about-card glass-interactive">
+                <div class="about-images">
+                    <img src="IMG/your-photo.png" alt="Your Photo" class="about-img">
+                </div>
+                <div class="about-text">
+                    <h3>Card Title</h3>
+                    <div class="story-content" id="newStoryContent">
+                        <p>Your story or description goes here.</p>
+                    </div>
+                </div>
+            </div>
+            ---
+            -->
+
+            <!-- Photo with Mom -->
+            <div class="about-card glass-interactive">
+                <div class="about-images">
+                    <img src="IMG/leonel-with-mom.png" alt="Leonel with Mom" class="about-img">
+                </div>
+                <div class="about-text">
+                    <h3>My Story</h3>
+                    <!-- WRITABLE AREA - Add your story here -->
+                    <div class="story-content" id="storyContent">
+                        <p>I was sitting in this booth in some random diner in Canada, and I swear, my orange juice was
+                            the size of a gallon bucket. I had to use both hands just to make sure I didn't cause a
+                            national disaster on the table.
+
+                            Mom was sitting right across from me, wearing this bright pink scarf, and honestly, it felt
+                            like we were the only two people in the whole place. The air smelled like greasy fries and
+                            maple syrup, which is basically the official scent of my entire childhood.
+
+                            Back then, I didn't have a phone to look at, so I just sat there fiddling with some toy or a
+                            sugar packet while we waited for the food. It was one of those "boring" weekend lunches that
+                            I realize now was actually the best part of the week. No drama, no internet, just a plate of
+                            fries between us and the feeling that as long as she was there, I was doing okay.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- School Photo -->
+            <div class="about-card glass-interactive">
+                <div class="about-images">
+                    <img src="IMG/school-photo.png" alt="School Days" class="about-img">
+                </div>
+                <div class="about-text">
+                    <h3>Early Days</h3>
+                    <!-- WRITABLE AREA - Add your memories here -->
+                    <div class="story-content" id="earlyDaysContent">
+                        <p>I was standing there in the middle of the St. Bernard class photo, trying to look cool while
+                            being surrounded by about twenty other kids who were all probably thinking about recess. My
+                            teacher was beaming in the back row, and I remember the gym floor having those specific blue
+                            and black tape marks that told us exactly where to stand so the photographer wouldn't lose
+                            his mind.
+
+                            I feel like this was the peak of "school style"—striped polos, patterned dresses, and that
+                            one kid who always managed to wear a graphic tee to picture day. I was just one face in a
+                            sea of bowl cuts and messy pigtails, living in that weird world where your biggest
+                            responsibility was remembering your library book and not losing your lunchbox. It was a time
+                            when my whole universe was basically just that hallway and the playground outside, and I had
+                            no idea that this grainy photo would eventually be the only proof that we all once hung out
+                            in the same room every day.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Paste new About Me cards above this line -->
+        </div>
+    </section>
+
+    <!-- Tributes Section -->
+    <section class="tributes-section">
+        <div class="section-container">
+            <h2 class="section-title">Tributes</h2>
+
+            <!--
+            ADD NEW TRIBUTE: Copy the 11 lines below, paste after Lil Wayne card. Change img src, h3, and <p>.
+            Put image in IMG/ folder, use: src="IMG/your-image.png"
+            ---
+            <div class="about-card glass-interactive">
+                <div class="about-images">
+                    <img src="IMG/your-image.png" alt="Your Title" class="about-img">
+                </div>
+                <div class="about-text">
+                    <h3>Your Title</h3>
+                    <div class="story-content" id="newTributeContent">
+                        <p>Your tribute text goes here.</p>
+                    </div>
+                </div>
+            </div>
+            ---
+            -->
+
+            <!-- XXXTentacion Tribute -->
+            <div class="about-card glass-interactive">
+                <div class="about-images">
+                    <img src="IMG/xxxtentacion.png" alt="XXXTentacion" class="about-img">
+                </div>
+                <div class="about-text">
+                    <h3>XXXTentacion</h3>
+                    <!-- ===== WRITABLE AREA - Add your tribute here ===== -->
+                    <div class="story-content" id="xxxContent">
+                        <p>I remember hearing the news and it felt like the air just left the room. It was different
+                            with X because it felt like he was actually growing up right alongside us, figuring out how
+                            to be a better person in real time. He went from this chaotic kid with blonde and black hair
+                            to someone who just wanted to spread a message of positivity and helping people find their
+                            way out of the dark.
+
+                            I think back to the 2009 version of me in that St. Bernard class photo and realize how much
+                            music like his eventually became the soundtrack for when things got complicated. He was the
+                            one artist who wasn't afraid to say he was hurting, and in a weird way, that made the rest
+                            of us feel like it was okay to not be okay. Even though he’s gone, I still feel that energy
+                            in the songs—like he left a map behind for anyone else feeling lost in their own head. Long
+                            Live Jahseh.</p>
+                    </div>
+                    <!-- ===== END WRITABLE AREA ===== -->
+                </div>
+            </div>
+
+            <!-- Lil Wayne Tribute -->
+            <div class="about-card glass-interactive">
+                <div class="about-images">
+                    <img src="IMG/lil-wayne.png" alt="Lil Wayne" class="about-img">
+                </div>
+                <div class="about-text">
+                    <h3>Lil Wayne</h3>
+                    <!-- ===== WRITABLE AREA - Add your tribute here ===== -->
+                    <div class="story-content" id="wayneContent">
+                        <p>Lil Wayne isn't just a rapper; he's the blueprint for what it means to actually outwork
+                            everybody in the room. I look at a guy like Weezy and see a man who treated the recording
+                            booth like a 24/7 office. He didn't just wait for inspiration to hit—he stayed in the studio
+                            until he became the best rapper alive, proving that genius is mostly just incredible
+                            discipline and refusing to sleep until the job is done.
+
+                            There’s something deeply respectable about the way he carries himself as a man, too. He’s a
+                            standup dude who stayed loyal to his circle and never stopped evolving, even when he was
+                            already at the top of the mountain. Seeing him transition from the wildest artist on the
+                            planet to a seasoned veteran who still skates and records every single day is the ultimate
+                            motivation. He makes me want to put that same level of "first in, last out" energy into
+                            everything I do, reminding me that if you want to be a legend, you have to work like you’re
+                            still trying to make a name for yourself.</p>
+                    </div>
+                    <!-- ===== END WRITABLE AREA ===== -->
+                </div>
+            </div>
+
+            <!-- Paste new tribute cards above this line -->
+        </div>
+    </section>
+
+    <footer id="glass-footer">
+        <div class="footer-content">
+
+            <div class="footer-section">
+                <span class="footer-name">Leonel Ferreira</span>
+                <span class="footer-desc">Programmer, based in Luanda</span>
+            </div>
+
+            <div class="footer-section social-icons">
+                <a href="https://github.com/leonelferreira0373" target="_blank" class="social-btn"><i
+                        class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/leonel-ferreira-b14742229" target="_blank"
+                    rel="noopener noreferrer" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://youtube.com/@blackboxstudios1?si=mZwV6yiS-fTfzxJL" target="_blank"
+                    class="social-btn"><i class="fab fa-youtube"></i></a>
+            </div>
+
+            <div class="footer-section footer-controls">
+                <div class="toggle-group">
+                    <button class="footer-btn" id="lang-en">EN</button>
+                    <button class="footer-btn" id="lang-pt">PT</button>
+                </div>
+            </div>
+
+            <div class="toggle-group">
+                <button class="footer-btn" id="theme-toggle">
+                    <span class="theme-icon">☼</span>
+                </button>
+            </div>
+        </div>
+
+    </footer>
+
+    <script src="js/translations.js"></script>
+    <script>
+        // ==========================================
+        // STARFIELD BACKGROUND EFFECT
+        // ==========================================
+        const canvas = document.getElementById('starfield');
+        const ctx = canvas.getContext('2d');
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = document.documentElement.scrollHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        // Star particles
+        const stars = [];
+        const starCount = 200;
+        const mouse = { x: null, y: null, radius: 150 };
+
+        // Shooting stars
+        const shootingStars = [];
+
+        class Star {
+            constructor() {
+                this.reset();
+                this.y = Math.random() * canvas.height;
+                this.originalX = this.x;
+                this.originalY = this.y;
+            }
+
+            reset() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 1.5 + 0.5;
+                this.originalX = this.x;
+                this.originalY = this.y;
+                this.vx = 0;
+                this.vy = 0;
+            }
+
+            update() {
+                // Mouse repulsion
+                if (mouse.x !== null && mouse.y !== null) {
+                    const dx = this.x - mouse.x;
+                    const dy = this.y - mouse.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < mouse.radius) {
+                        const force = (mouse.radius - distance) / mouse.radius;
+                        const angle = Math.atan2(dy, dx);
+                        this.vx += Math.cos(angle) * force * 2;
+                        this.vy += Math.sin(angle) * force * 2;
+                    }
+                }
+
+                // Apply velocity
+                this.x += this.vx;
+                this.y += this.vy;
+
+                // Return to original position
+                this.vx += (this.originalX - this.x) * 0.05;
+                this.vy += (this.originalY - this.y) * 0.05;
+
+                // Damping
+                this.vx *= 0.95;
+                this.vy *= 0.95;
+
+                // Keep in bounds
+                if (this.x < 0 || this.x > canvas.width) this.reset();
+                if (this.y < 0 || this.y > canvas.height) this.reset();
+            }
+
+            draw() {
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        class ShootingStar {
+            constructor() {
+                this.reset();
+            }
+
+            reset() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * (canvas.height * 0.5);
+                this.length = Math.random() * 80 + 60;
+                this.speed = Math.random() * 15 + 10;
+                this.angle = Math.PI / 4 + (Math.random() - 0.5) * 0.3;
+                this.opacity = 1;
+                this.life = 0;
+                this.maxLife = Math.random() * 60 + 40;
+            }
+
+            update() {
+                this.x += Math.cos(this.angle) * this.speed;
+                this.y += Math.sin(this.angle) * this.speed;
+                this.life++;
+                this.opacity = 1 - (this.life / this.maxLife);
+
+                if (this.life >= this.maxLife || this.y > canvas.height || this.x > canvas.width) {
+                    this.reset();
+                }
+            }
+
+            draw() {
+                const gradient = ctx.createLinearGradient(
+                    this.x, this.y,
+                    this.x - Math.cos(this.angle) * this.length,
+                    this.y - Math.sin(this.angle) * this.length
+                );
+                gradient.addColorStop(0, `rgba(139, 92, 246, ${this.opacity})`);
+                gradient.addColorStop(0.5, `rgba(167, 139, 250, ${this.opacity * 0.6})`);
+                gradient.addColorStop(1, 'rgba(139, 92, 246, 0)');
+
+                ctx.strokeStyle = gradient;
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                ctx.moveTo(this.x, this.y);
+                ctx.lineTo(
+                    this.x - Math.cos(this.angle) * this.length,
+                    this.y - Math.sin(this.angle) * this.length
+                );
+                ctx.stroke();
+            }
+        }
+
+        // Initialize stars
+        for (let i = 0; i < starCount; i++) {
+            stars.push(new Star());
+        }
+
+        // Mouse tracking
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY + window.scrollY;
+        });
+
+        // ==========================================
+        // SCROLL-BASED UI BEHAVIORS
+        // ==========================================
+        const nav = document.getElementById('glass-nav');
+        const footer = document.getElementById('glass-footer');
+        let lastScrollY = window.scrollY;
+        let navVisible = true;
+
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            const scrollingDown = currentScrollY > lastScrollY;
+            const scrollingUp = currentScrollY < lastScrollY;
+
+            // NAVIGATION: Hide on scroll down, show on scroll up
+            // Note: maintains translateX(-50%) for centering
+            if (scrollingDown && navVisible && currentScrollY > 100) {
+                nav.style.transform = 'translate(-50%, -150px)';
+                nav.style.opacity = '0';
+                navVisible = false;
+            } else if (scrollingUp && !navVisible) {
+                nav.style.transform = 'translate(-50%, 0)';
+                nav.style.opacity = '1';
+                navVisible = true;
+            }
+
+            // FOOTER: Only visible when at the VERY bottom of the page
+            const scrollHeight = document.documentElement.scrollHeight;
+            const scrollPosition = window.scrollY + window.innerHeight;
+            // Strict threshold: only show when within 20px of bottom
+            const atBottom = (scrollHeight - scrollPosition) < 20;
+
+            if (atBottom) {
+                footer.style.transform = 'translateY(0)';
+                footer.style.opacity = '1';
+            } else {
+                footer.style.transform = 'translateY(100px)';
+                footer.style.opacity = '0';
+            }
+
+            lastScrollY = currentScrollY;
+        });
+
+        // Initial footer state (hidden)
+        footer.style.transform = 'translateY(100px)';
+        footer.style.opacity = '0';
+
+        // ==========================================
+        // NAVIGATION AND SCROLL CODE
+        // ==========================================
+        const navUl = document.querySelector('#glass-nav ul');
+        const button = document.querySelector('.scroll-button');
+        const track = document.querySelector('.scroll-track');
+
+        // GLASS INTERACTIVE EFFECT - Cursor following light on borders
+        document.getElementById('glass-nav').addEventListener('mousemove', (e) => {
+            const rect = navUl.getBoundingClientRect();
+            const x = Math.round(e.clientX - rect.left);
+            const y = Math.round(e.clientY - rect.top);
+            navUl.style.setProperty('--mouse-x', `${x}px`);
+            navUl.style.setProperty('--mouse-y', `${y}px`);
+        });
+
+        // Apply cursor-following effect to all interactive glass cards
+        const glassCards = document.querySelectorAll('.glass-interactive');
+        glassCards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = Math.round(e.clientX - rect.left);
+                const y = Math.round(e.clientY - rect.top);
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+
+        // UNIVERSAL DRAG LOGIC (Mouse & Touch)
+        let isDragging = false;
+        const start = (e) => { isDragging = true; document.body.style.userSelect = 'none'; };
+        const end = () => { isDragging = false; document.body.style.userSelect = 'auto'; };
+
+        const move = (e) => {
+            if (!isDragging) return;
+            const evt = e.touches ? e.touches[0] : e;
+            const rect = track.getBoundingClientRect();
+            const maxMove = track.offsetHeight - button.offsetHeight;
+
+            let y = evt.clientY - rect.top - (button.offsetHeight / 2);
+            y = Math.max(0, Math.min(y, maxMove));
+
+            button.style.top = `${y}px`;
+            const pct = y / maxMove;
+            window.scrollTo(0, pct * (document.documentElement.scrollHeight - window.innerHeight));
+        };
+
+        button.addEventListener('mousedown', start);
+        window.addEventListener('mouseup', end);
+        window.addEventListener('mousemove', move);
+        button.addEventListener('touchstart', start);
+        window.addEventListener('touchend', end);
+        window.addEventListener('touchmove', move);
+
+        // Sync button position with scroll wheel
+        window.addEventListener('scroll', () => {
+            if (isDragging) return;
+            const total = document.documentElement.scrollHeight - window.innerHeight;
+            const pct = total > 0 ? window.scrollY / total : 0;
+            const maxMove = track.offsetHeight - button.offsetHeight;
+            button.style.top = (pct * maxMove) + 'px';
+        });
+
+        // --- THEME TOGGLE (Light/Dark Mode) ---
+        const themeBtn = document.getElementById('theme-toggle');
+        themeBtn.addEventListener('click', () => {
+            document.body.classList.toggle('light-mode');
+            // Change icon based on mode
+            const icon = themeBtn.querySelector('.theme-icon');
+            icon.textContent = document.body.classList.contains('light-mode') ? '☾' : '☼';
+        });
+
+        // --- TRANSLATION (uses js/translations.js) ---
+
+        // --- DYNAMIC CONTENT (READ-ONLY) ---
+        function loadDiscover() {
+            const data = JSON.parse(localStorage.getItem('discover_content')) || {};
+            const keys = ['storyContent', 'earlyDaysContent', 'xxxContent', 'wayneContent'];
+
+            keys.forEach(key => {
+                const el = document.getElementById(key);
+                if (el && data[key]) {
+                    // Convert newlines to breaks for display
+                    // Also wrapper in <p> if needed, but <br> is safe for now
+                    el.innerHTML = data[key].replace(/\n/g, '<br>');
+                }
+            });
+        }
+        loadDiscover();
+
+        if (typeof initLanguage === 'function') initLanguage('discover');
+    </script>
+
+
+</body>
+
+</html>
