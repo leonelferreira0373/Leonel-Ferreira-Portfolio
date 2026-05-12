@@ -5,7 +5,10 @@ import { Projects } from "@/components/sections/projects";
 import { Experience } from "@/components/sections/experience";
 import { Contact } from "@/components/sections/contact";
 import { SocialDock } from "@/components/social-dock";
+import { ThemeToggle } from "@/components/theme-toggle";
+import { LangToggle } from "@/components/lang-toggle";
 import { PROFILE } from "@/data/portfolio";
+import { useT } from "@/lib/i18n";
 
 export default function App() {
   return (
@@ -31,16 +34,17 @@ export default function App() {
 }
 
 function NavBar() {
+  const t = useT();
   const links = [
-    { href: "#about", label: "About" },
-    { href: "#skills", label: "Skills" },
-    { href: "#projects", label: "Projects" },
-    { href: "#experience", label: "Experience" },
-    { href: "#contact", label: "Contact" },
+    { href: "#about", label: { pt: "Sobre", en: "About" } },
+    { href: "#skills", label: { pt: "Competências", en: "Skills" } },
+    { href: "#projects", label: { pt: "Projectos", en: "Projects" } },
+    { href: "#experience", label: { pt: "Experiência", en: "Experience" } },
+    { href: "#contact", label: { pt: "Contacto", en: "Contact" } },
   ];
   return (
     <header className="sticky top-0 z-30 border-b border-border/60 bg-background/70 backdrop-blur">
-      <nav className="mx-auto flex w-full max-w-5xl items-center justify-between px-5 py-3 sm:px-8">
+      <nav className="mx-auto flex w-full max-w-5xl items-center justify-between gap-3 px-5 py-3 sm:px-8">
         <a href="#top" className="font-mono text-sm font-medium tracking-tight">
           leonel<span className="text-muted-foreground">.dev</span>
         </a>
@@ -51,17 +55,21 @@ function NavBar() {
                 href={l.href}
                 className="rounded-full px-3 py-1.5 text-muted-foreground transition hover:bg-foreground/5 hover:text-foreground"
               >
-                {l.label}
+                {t(l.label)}
               </a>
             </li>
           ))}
         </ul>
-        <a
-          href="#contact"
-          className="hidden rounded-full bg-foreground px-4 py-1.5 text-sm font-medium text-background transition hover:bg-foreground/90 md:inline-flex"
-        >
-          Hire me
-        </a>
+        <div className="flex items-center gap-2">
+          <LangToggle />
+          <ThemeToggle />
+          <a
+            href="#contact"
+            className="hidden rounded-full bg-foreground px-4 py-1.5 text-sm font-medium text-background transition hover:bg-foreground/90 sm:inline-flex"
+          >
+            {t({ pt: "Contratar", en: "Hire me" })}
+          </a>
+        </div>
       </nav>
     </header>
   );
@@ -76,16 +84,22 @@ function Divider() {
 }
 
 function Footer() {
+  const t = useT();
   return (
     <footer className="border-t border-border/60 py-10">
       <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-3 px-5 text-xs text-muted-foreground sm:flex-row sm:px-8">
         <div className="font-mono">
           © {new Date().getFullYear()} {PROFILE.name}
         </div>
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-1 text-center">
           <span className="font-mono">{PROFILE.location}</span>
           <span>·</span>
-          <span>Built with React, Vite, Tailwind & MagicUI</span>
+          <span>
+            {t({
+              pt: "Feito com React, Vite, Tailwind & MagicUI",
+              en: "Built with React, Vite, Tailwind & MagicUI",
+            })}
+          </span>
         </div>
       </div>
     </footer>

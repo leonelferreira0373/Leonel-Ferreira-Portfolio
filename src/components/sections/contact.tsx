@@ -1,46 +1,72 @@
 import { FlickeringGrid } from "@/components/magicui/flickering-grid";
 import { PROFILE } from "@/data/portfolio";
 import { GithubIcon, WhatsAppIcon } from "@/components/brand-icons";
+import { useT, useLang } from "@/lib/i18n";
+import { useTheme } from "@/lib/theme";
 import { Mail } from "lucide-react";
 
 export function Contact() {
+  const t = useT();
+  const { lang } = useLang();
+  const { theme } = useTheme();
+  const gridColor =
+    theme === "dark" ? "rgb(255,255,255)" : "rgb(0,0,0)";
+
   return (
     <section id="contact" className="relative isolate overflow-hidden py-24">
       <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-full mask-radial">
         <FlickeringGrid
           squareSize={3}
           gridGap={6}
-          color="rgb(255,255,255)"
-          maxOpacity={0.16}
+          color={gridColor}
+          maxOpacity={theme === "dark" ? 0.16 : 0.09}
           flickerChance={0.1}
         />
       </div>
 
       <div className="mx-auto max-w-2xl text-center">
         <div className="mb-3 font-mono text-xs uppercase tracking-widest text-muted-foreground">
-          05 · Contact
+          {t({ pt: "05 · Contacto", en: "05 · Contact" })}
         </div>
         <h2 className="text-4xl font-semibold tracking-tight md:text-5xl">
-          Get in touch
+          {t({ pt: "Vamos falar", en: "Get in touch" })}
         </h2>
         <p className="mx-auto mt-4 max-w-xl text-pretty text-muted-foreground">
-          Wanna chat? Drop a{" "}
-          <a
-            href={`mailto:${PROFILE.email}`}
-            className="link"
-          >
-            mail
-          </a>{" "}
-          or message me directly on{" "}
-          <a
-            href={PROFILE.whatsappLink}
-            target="_blank"
-            rel="noreferrer"
-            className="link"
-          >
-            WhatsApp
-          </a>
-          . Open to freelance, contract, and full-time roles.
+          {lang === "pt" ? (
+            <>
+              Queres falar? Envia um{" "}
+              <a href={`mailto:${PROFILE.email}`} className="link">
+                email
+              </a>{" "}
+              ou manda mensagem directa no{" "}
+              <a
+                href={PROFILE.whatsappLink}
+                target="_blank"
+                rel="noreferrer"
+                className="link"
+              >
+                WhatsApp
+              </a>
+              . Aberto a freelance, contratos e funções full-time.
+            </>
+          ) : (
+            <>
+              Wanna chat? Drop a{" "}
+              <a href={`mailto:${PROFILE.email}`} className="link">
+                mail
+              </a>{" "}
+              or message me directly on{" "}
+              <a
+                href={PROFILE.whatsappLink}
+                target="_blank"
+                rel="noreferrer"
+                className="link"
+              >
+                WhatsApp
+              </a>
+              . Open to freelance, contract, and full-time roles.
+            </>
+          )}
         </p>
 
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">

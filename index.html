@@ -1,21 +1,31 @@
 <!doctype html>
-<html lang="pt-PT" class="dark scroll-smooth">
+<html lang="pt-PT" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#0a0a0a" />
+    <meta name="theme-color" content="#ffffff" />
     <meta
       name="description"
       content="Leonel Ferreira — Programador & Designer baseado em Luanda. Apps, sistemas, websites, branding e gestão de redes sociais."
     />
-    <meta property="og:title" content="Leonel Ferreira — Programmer & Designer" />
+    <meta property="og:title" content="Leonel Ferreira — Programador & Designer" />
     <meta
       property="og:description"
-      content="Programmer & Designer based in Luanda, Angola. I build digital products end-to-end."
+      content="Programador & Designer baseado em Luanda, Angola. Construo produtos digitais de ponta a ponta."
     />
     <meta property="og:type" content="website" />
-    <title>Leonel Ferreira — Programmer & Designer</title>
+    <title>Leonel Ferreira — Programador & Designer</title>
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem("theme");
+          if (t === "dark") document.documentElement.classList.add("dark");
+          var l = localStorage.getItem("lang");
+          if (l === "en") document.documentElement.lang = "en";
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
