@@ -30,12 +30,19 @@ export function Projects() {
 function ProjectCard({ project }: { project: Project }) {
   const t = useT();
   const { name, blurb, href, image, tags, live } = project;
+  const Wrapper = href ? "a" : "div";
+  const wrapperProps = href
+    ? { href, target: "_blank", rel: "noreferrer" }
+    : {};
   return (
-    <a
-      href={href ?? "#"}
-      target={href ? "_blank" : undefined}
-      rel={href ? "noreferrer" : undefined}
-      className="group relative flex flex-col overflow-hidden rounded-xl border border-border bg-card/40 backdrop-blur transition hover:-translate-y-0.5 hover:border-foreground/30 hover:bg-card"
+    <Wrapper
+      {...wrapperProps}
+      className={
+        "group relative flex flex-col overflow-hidden rounded-xl border border-border bg-card/40 backdrop-blur transition " +
+        (href
+          ? "hover:-translate-y-0.5 hover:border-foreground/30 hover:bg-card"
+          : "")
+      }
     >
       <div className="relative aspect-[16/9] overflow-hidden border-b border-border bg-gradient-to-br from-muted via-card to-background">
         {image ? (
@@ -76,7 +83,7 @@ function ProjectCard({ project }: { project: Project }) {
           ))}
         </div>
       </div>
-    </a>
+    </Wrapper>
   );
 }
 

@@ -25,8 +25,9 @@ export function Hero() {
         />
       </div>
 
-      <div className="grid items-center gap-10 md:grid-cols-[1fr_auto]">
-        <div className="space-y-6">
+      <div className="flex flex-col items-start gap-8 md:grid md:items-center md:gap-10 md:grid-cols-[1fr_auto]">
+        <Portrait className="md:order-2" />
+        <div className="space-y-6 md:order-1">
           <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card/60 px-3 py-1 text-xs text-muted-foreground backdrop-blur">
             <span className="relative flex h-2 w-2">
               <span className="absolute inset-0 animate-ping rounded-full bg-emerald-500/70" />
@@ -69,16 +70,15 @@ export function Hero() {
           </div>
         </div>
 
-        <Portrait />
       </div>
     </section>
   );
 }
 
-function Portrait() {
+function Portrait({ className = "" }: { className?: string }) {
   return (
-    <div className="relative hidden md:block">
-      <div className="relative size-44 lg:size-52">
+    <div className={"relative " + className}>
+      <div className="relative size-28 sm:size-36 md:size-44 lg:size-52">
         <div className="absolute inset-0 -z-10 rounded-full bg-gradient-to-br from-foreground/12 via-foreground/5 to-transparent blur-2xl" />
         <div className="relative size-full overflow-hidden rounded-full border border-border bg-card shadow-[0_0_40px_rgba(0,0,0,0.05)] dark:shadow-[0_0_40px_rgba(255,255,255,0.04)]">
           <img

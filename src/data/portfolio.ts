@@ -69,7 +69,7 @@ export const PROJECTS: Project[] = [
       pt: "Serviço de Moto-Táxi para Luanda. Landing page, app Android (Kotlin) para motoristas e backend planeado em Render + Neon. Construído com um amigo para resolver transporte local a sério.",
       en: "Moto-taxi service for Luanda. Landing page, Kotlin Android driver app, and planned Render + Neon backend. Built with a friend to ship a real local transport product.",
     },
-    href: "https://github.com/leonelferreira0373/bazza-taxi",
+    image: "./projects/baza.png",
     tags: ["HTML", "Kotlin", "Android", "Render", "Neon"],
   },
   {
