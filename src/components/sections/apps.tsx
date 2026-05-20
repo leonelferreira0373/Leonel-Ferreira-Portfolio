@@ -1,7 +1,7 @@
 import { APPS, type AppDownload } from "@/data/portfolio";
 import { SectionHeading } from "@/components/sections/about";
 import { useT } from "@/lib/i18n";
-import { Bike, Download, Eraser, Moon, Store } from "lucide-react";
+import { Bike, Download, Eraser, Moon, Palette, Store } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 const ICONS: Record<AppDownload["icon"], LucideIcon> = {
@@ -9,6 +9,7 @@ const ICONS: Record<AppDownload["icon"], LucideIcon> = {
   store: Store,
   bike: Bike,
   eraser: Eraser,
+  palette: Palette,
 };
 
 const ACCENTS: Record<AppDownload["accent"], { ring: string; bg: string; text: string; chip: string }> = {
@@ -36,6 +37,12 @@ const ACCENTS: Record<AppDownload["accent"], { ring: string; bg: string; text: s
     text: "text-rose-600 dark:text-rose-300",
     chip: "border-rose-500/30 bg-rose-500/10 text-rose-700 dark:text-rose-300",
   },
+  sky: {
+    ring: "border-sky-500/30",
+    bg: "from-sky-500/15 via-sky-500/5 to-transparent",
+    text: "text-sky-600 dark:text-sky-300",
+    chip: "border-sky-500/30 bg-sky-500/10 text-sky-700 dark:text-sky-300",
+  },
 };
 
 export function Apps() {
@@ -45,12 +52,12 @@ export function Apps() {
       <SectionHeading
         kicker={t({ pt: "04 · Apps", en: "04 · Apps" })}
         title={t({
-          pt: "Apps Android que construí",
-          en: "Android apps I've built",
+          pt: "Apps que construí",
+          en: "Apps I've built",
         })}
         description={t({
-          pt: "Faz download dos meus APKs directamente. Activa \"Fontes desconhecidas\" no Android antes de instalar.",
-          en: "Download my APKs directly. Enable \"Unknown sources\" on Android before installing.",
+          pt: "Faz download directo dos APKs Android e bundles para Windows. Para APKs, activa \"Fontes desconhecidas\" no Android antes de instalar.",
+          en: "Direct download for Android APKs and Windows bundles. For APKs, enable \"Unknown sources\" on Android before installing.",
         })}
       />
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">

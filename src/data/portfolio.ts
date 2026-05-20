@@ -128,8 +128,8 @@ export type AppDownload = {
   size: string;
   version: string;
   platform: Bilingual;
-  icon: "moon" | "store" | "bike" | "eraser";
-  accent: "violet" | "amber" | "emerald" | "rose";
+  icon: "moon" | "store" | "bike" | "eraser" | "palette";
+  accent: "violet" | "amber" | "emerald" | "rose" | "sky";
 };
 
 export const APPS: AppDownload[] = [
@@ -184,6 +184,32 @@ export const APPS: AppDownload[] = [
     platform: { pt: "Android · ONNX", en: "Android · ONNX" },
     icon: "eraser",
     accent: "rose",
+  },
+  {
+    name: "BG Remover PC",
+    blurb: {
+      pt: "Versão desktop do BG Remover para Windows. Modelos AI descarregam-se separadamente após instalar. Construído em PySide6 + ONNX.",
+      en: "Desktop version of BG Remover for Windows. AI models download separately after install. Built in PySide6 + ONNX.",
+    },
+    url: "https://github.com/leonelferreira0373/Leonel-Ferreira-Portfolio/releases/download/pc-v1/bgremover-pc.zip",
+    size: "161 MB",
+    version: "v1.0",
+    platform: { pt: "Windows · PySide6", en: "Windows · PySide6" },
+    icon: "eraser",
+    accent: "rose",
+  },
+  {
+    name: "Klip",
+    blurb: {
+      pt: "Editor de imagens para PC ao estilo Canva/CorelDRAW — beta em construção activa. Modelos AI descarregam-se separadamente. PySide6 + ONNX.",
+      en: "PC image editor in the style of Canva/CorelDRAW — beta under active development. AI models download separately. PySide6 + ONNX.",
+    },
+    url: "https://github.com/leonelferreira0373/Leonel-Ferreira-Portfolio/releases/download/pc-v1/klip-beta.zip",
+    size: "69 MB",
+    version: "v0.1 beta",
+    platform: { pt: "Windows · PySide6", en: "Windows · PySide6" },
+    icon: "palette",
+    accent: "sky",
   },
 ];
 
