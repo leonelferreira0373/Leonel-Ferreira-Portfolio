@@ -4,7 +4,7 @@ import tailwindcss from "@tailwindcss/vite";
 import path from "node:path";
 
 export default defineConfig({
-  base: "/Leonel-Ferreira-Portfolio/",
+  base: process.env.VERCEL ? "/" : "/Leonel-Ferreira-Portfolio/",
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: { "@": path.resolve(__dirname, "./src") },
