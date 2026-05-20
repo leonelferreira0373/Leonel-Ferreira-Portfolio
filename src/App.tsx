@@ -3,6 +3,7 @@ import { About } from "@/components/sections/about";
 import { Skills } from "@/components/sections/skills";
 import { Projects } from "@/components/sections/projects";
 import { Apps } from "@/components/sections/apps";
+import { Gallery } from "@/components/sections/gallery";
 import { Experience } from "@/components/sections/experience";
 import { Contact } from "@/components/sections/contact";
 import { SocialDock } from "@/components/social-dock";
@@ -27,6 +28,8 @@ export default function App() {
         <Divider />
         <Apps />
         <Divider />
+        <Gallery />
+        <Divider />
         <Experience />
         <Divider />
         <Contact />
@@ -43,6 +46,7 @@ function NavBar() {
     { href: "#skills", label: { pt: "Competências", en: "Skills" } },
     { href: "#projects", label: { pt: "Projectos", en: "Projects" } },
     { href: "#apps", label: { pt: "Apps", en: "Apps" } },
+    { href: "#gallery", label: { pt: "Galeria", en: "Gallery" } },
     { href: "#experience", label: { pt: "Experiência", en: "Experience" } },
     { href: "#contact", label: { pt: "Contacto", en: "Contact" } },
   ];

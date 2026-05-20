@@ -1,6 +1,6 @@
 import { PROFILE } from "@/data/portfolio";
 import { Mail } from "lucide-react";
-import { GithubIcon, WhatsAppIcon } from "@/components/brand-icons";
+import { GithubIcon, InstagramIcon, LinkedInIcon, WhatsAppIcon } from "@/components/brand-icons";
 
 export function SocialDock() {
   const items = [
@@ -8,6 +8,18 @@ export function SocialDock() {
       href: PROFILE.githubUrl,
       label: "GitHub",
       Icon: GithubIcon,
+      external: true,
+    },
+    {
+      href: PROFILE.linkedinUrl,
+      label: "LinkedIn",
+      Icon: LinkedInIcon,
+      external: true,
+    },
+    {
+      href: PROFILE.instagramUrl,
+      label: "Instagram",
+      Icon: InstagramIcon,
       external: true,
     },
     {

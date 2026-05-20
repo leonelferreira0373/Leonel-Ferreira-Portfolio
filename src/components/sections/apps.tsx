@@ -105,7 +105,9 @@ function AppCard({ app }: { app: AppDownload }) {
             className="inline-flex items-center gap-2 rounded-full bg-foreground px-4 py-2 text-sm font-medium text-background transition hover:bg-foreground/90"
           >
             <Download className="size-4" />
-            {t({ pt: "Baixar APK", en: "Download APK" })}
+            {app.kind === "exe"
+              ? t({ pt: "Baixar EXE", en: "Download EXE" })
+              : t({ pt: "Baixar APK", en: "Download APK" })}
           </a>
           <span className="font-mono text-[11px] text-muted-foreground">
             {app.size}

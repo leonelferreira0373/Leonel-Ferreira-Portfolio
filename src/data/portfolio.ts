@@ -17,6 +17,9 @@ export const PROFILE = {
   whatsappLink: "https://wa.me/244945321186",
   github: "leonelferreira0373",
   githubUrl: "https://github.com/leonelferreira0373",
+  linkedinUrl: "https://www.linkedin.com/in/leonel-ferreira-b14742229/",
+  instagram: "leonel_ferreira_001",
+  instagramUrl: "https://www.instagram.com/leonel_ferreira_001",
   bio: {
     pt: "Programador & Designer a construir produtos digitais de ponta a ponta — apps, sistemas, websites, branding e gestão de redes sociais. Actualmente Gerente da Geosstore em Luanda, onde também opero a operação ponta-a-ponta. Auto-didacta, à vontade com o ritmo de startup.",
     en: "Programmer & Designer building digital products end-to-end — apps, complex systems, websites, branding, and social media. Currently Manager at Geosstore in Luanda, where I also run the end-to-end operation. Self-taught, comfortable with startup pace.",
@@ -128,6 +131,7 @@ export type AppDownload = {
   size: string;
   version: string;
   platform: Bilingual;
+  kind: "apk" | "exe";
   icon: "moon" | "store" | "bike" | "eraser" | "palette";
   accent: "violet" | "amber" | "emerald" | "rose" | "sky";
 };
@@ -143,6 +147,7 @@ export const APPS: AppDownload[] = [
     size: "6.6 MB",
     version: "v1.0",
     platform: { pt: "Android · Kotlin", en: "Android · Kotlin" },
+    kind: "apk",
     icon: "moon",
     accent: "violet",
   },
@@ -156,6 +161,7 @@ export const APPS: AppDownload[] = [
     size: "1.2 MB",
     version: "v1.0",
     platform: { pt: "Android · Chromium", en: "Android · Chromium" },
+    kind: "apk",
     icon: "store",
     accent: "amber",
   },
@@ -169,6 +175,7 @@ export const APPS: AppDownload[] = [
     size: "24 MB",
     version: "beta",
     platform: { pt: "Android · Kotlin", en: "Android · Kotlin" },
+    kind: "apk",
     icon: "bike",
     accent: "emerald",
   },
@@ -182,6 +189,7 @@ export const APPS: AppDownload[] = [
     size: "193 MB",
     version: "v1.1.0",
     platform: { pt: "Android · ONNX", en: "Android · ONNX" },
+    kind: "apk",
     icon: "eraser",
     accent: "rose",
   },
@@ -195,6 +203,7 @@ export const APPS: AppDownload[] = [
     size: "161 MB",
     version: "v1.0",
     platform: { pt: "Windows · PySide6", en: "Windows · PySide6" },
+    kind: "exe",
     icon: "eraser",
     accent: "rose",
   },
@@ -208,8 +217,101 @@ export const APPS: AppDownload[] = [
     size: "69 MB",
     version: "v0.1 beta",
     platform: { pt: "Windows · PySide6", en: "Windows · PySide6" },
+    kind: "exe",
     icon: "palette",
     accent: "sky",
+  },
+];
+
+export type GalleryTab = "photo" | "design" | "work" | "me";
+
+export type GalleryItem = {
+  src: string;
+  alt: Bilingual;
+  tab: GalleryTab;
+};
+
+export const GALLERY_TABS: { id: GalleryTab; label: Bilingual }[] = [
+  { id: "photo", label: { pt: "Trabalhos de Fotografia", en: "Photography Work" } },
+  { id: "design", label: { pt: "Design Gráfico", en: "Graphic Design" } },
+  { id: "work", label: { pt: "Eu no Trabalho", en: "Me at Work" } },
+  { id: "me", label: { pt: "Fotos Minhas", en: "Photos of Me" } },
+];
+
+export const GALLERY: GalleryItem[] = [
+  // Photography work — his subjects, editorial style
+  {
+    src: "./gallery/photo-01-fur.jpg",
+    alt: { pt: "Editorial — casaco de pele", en: "Editorial — fur coat" },
+    tab: "photo",
+  },
+  {
+    src: "./gallery/photo-02-sunglasses.jpg",
+    alt: { pt: "Editorial — óculos de sol", en: "Editorial — sunglasses" },
+    tab: "photo",
+  },
+  // Graphic design — reusing the branding/project images
+  {
+    src: "./projects/geosstore.png",
+    alt: { pt: "GEOSSTORE — identidade e storefront", en: "GEOSSTORE — branding and storefront" },
+    tab: "design",
+  },
+  {
+    src: "./projects/baza.png",
+    alt: { pt: "BAZA — identidade do serviço de moto-táxi", en: "BAZA — moto-taxi service identity" },
+    tab: "design",
+  },
+  {
+    src: "./projects/vape-express.png",
+    alt: { pt: "Vape Express — branding e storefront", en: "Vape Express — branding and storefront" },
+    tab: "design",
+  },
+  {
+    src: "./projects/roast-and-donut.png",
+    alt: { pt: "Roast and Donut — identidade do café", en: "Roast and Donut — coffee shop identity" },
+    tab: "design",
+  },
+  {
+    src: "./projects/orizonte.png",
+    alt: { pt: "Orizonte Logística — identidade corporativa", en: "Orizonte Logística — corporate identity" },
+    tab: "design",
+  },
+  // Me at work
+  {
+    src: "./gallery/work-01-badge.jpg",
+    alt: { pt: "No escritório com o crachá", en: "At the office with the ID badge" },
+    tab: "work",
+  },
+  {
+    src: "./gallery/work-02-laptop.jpg",
+    alt: { pt: "A configurar o Android Studio", en: "Setting up Android Studio" },
+    tab: "work",
+  },
+  // Photos of me
+  {
+    src: "./gallery/me-01-navy.jpg",
+    alt: { pt: "Fato azul-escuro", en: "Navy suit" },
+    tab: "me",
+  },
+  {
+    src: "./gallery/me-02-bw.jpg",
+    alt: { pt: "Retrato a preto e branco", en: "Black and white portrait" },
+    tab: "me",
+  },
+  {
+    src: "./gallery/me-03-suit.jpg",
+    alt: { pt: "Fato — close-up", en: "Suit — close-up" },
+    tab: "me",
+  },
+  {
+    src: "./gallery/me-04-white.jpg",
+    alt: { pt: "Camisa branca", en: "White shirt" },
+    tab: "me",
+  },
+  {
+    src: "./gallery/me-05-pattern.jpg",
+    alt: { pt: "Estampado tradicional", en: "Traditional pattern" },
+    tab: "me",
   },
 ];
 
