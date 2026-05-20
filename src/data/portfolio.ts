@@ -124,13 +124,12 @@ export const PROJECTS: Project[] = [
 export type AppDownload = {
   name: string;
   blurb: Bilingual;
-  filename?: string;
-  size?: string;
-  version?: string;
-  status: "available" | "coming-soon";
+  filename: string;
+  size: string;
+  version: string;
   platform: Bilingual;
-  icon: "moon" | "store" | "bike" | "eraser";
-  accent: "violet" | "amber" | "emerald" | "rose";
+  icon: "moon" | "store" | "bike";
+  accent: "violet" | "amber" | "emerald";
 };
 
 export const APPS: AppDownload[] = [
@@ -143,7 +142,6 @@ export const APPS: AppDownload[] = [
     filename: "lume.apk",
     size: "6.6 MB",
     version: "v1.0",
-    status: "available",
     platform: { pt: "Android · Kotlin", en: "Android · Kotlin" },
     icon: "moon",
     accent: "violet",
@@ -157,7 +155,6 @@ export const APPS: AppDownload[] = [
     filename: "geosstore.apk",
     size: "1.2 MB",
     version: "v1.0",
-    status: "available",
     platform: { pt: "Android · Chromium", en: "Android · Chromium" },
     icon: "store",
     accent: "amber",
@@ -171,21 +168,9 @@ export const APPS: AppDownload[] = [
     filename: "baza.apk",
     size: "24 MB",
     version: "beta",
-    status: "available",
     platform: { pt: "Android · Kotlin", en: "Android · Kotlin" },
     icon: "bike",
     accent: "emerald",
-  },
-  {
-    name: "BG Remover",
-    blurb: {
-      pt: "Remoção de fundo em fotos directamente no telemóvel — modelos ONNX integrados, sem servidores. Disponível em breve via GitHub Releases.",
-      en: "On-device background removal for photos — bundled ONNX models, no server. Available soon via GitHub Releases.",
-    },
-    status: "coming-soon",
-    platform: { pt: "Android · ONNX", en: "Android · ONNX" },
-    icon: "eraser",
-    accent: "rose",
   },
 ];
 

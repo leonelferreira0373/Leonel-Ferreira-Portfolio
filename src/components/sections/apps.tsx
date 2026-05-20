@@ -1,14 +1,13 @@
 import { APPS, type AppDownload } from "@/data/portfolio";
 import { SectionHeading } from "@/components/sections/about";
 import { useT } from "@/lib/i18n";
-import { Bike, Download, Eraser, Moon, Store } from "lucide-react";
+import { Bike, Download, Moon, Store } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 const ICONS: Record<AppDownload["icon"], LucideIcon> = {
   moon: Moon,
   store: Store,
   bike: Bike,
-  eraser: Eraser,
 };
 
 const ACCENTS: Record<AppDownload["accent"], { ring: string; bg: string; text: string; chip: string }> = {
@@ -30,12 +29,6 @@ const ACCENTS: Record<AppDownload["accent"], { ring: string; bg: string; text: s
     text: "text-emerald-600 dark:text-emerald-300",
     chip: "border-emerald-500/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300",
   },
-  rose: {
-    ring: "border-rose-500/30",
-    bg: "from-rose-500/15 via-rose-500/5 to-transparent",
-    text: "text-rose-600 dark:text-rose-300",
-    chip: "border-rose-500/30 bg-rose-500/10 text-rose-700 dark:text-rose-300",
-  },
 };
 
 export function Apps() {
@@ -53,7 +46,7 @@ export function Apps() {
           en: "Download my APKs directly. Enable \"Unknown sources\" on Android before installing.",
         })}
       />
-      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {APPS.map((app) => (
           <AppCard key={app.name} app={app} />
         ))}
@@ -66,15 +59,8 @@ function AppCard({ app }: { app: AppDownload }) {
   const t = useT();
   const Icon = ICONS[app.icon];
   const accent = ACCENTS[app.accent];
-  const available = app.status === "available";
   return (
-    <article
-      className={`relative flex flex-col overflow-hidden rounded-xl border bg-card/40 backdrop-blur transition ${
-        available
-          ? "border-border hover:-translate-y-0.5 hover:border-foreground/30 hover:bg-card"
-          : "border-dashed border-border/70"
-      }`}
-    >
+    <article className="relative flex flex-col overflow-hidden rounded-xl border border-border bg-card/40 backdrop-blur transition hover:-translate-y-0.5 hover:border-foreground/30 hover:bg-card">
       <div className={`pointer-events-none absolute inset-x-0 top-0 -z-0 h-24 bg-gradient-to-b ${accent.bg}`} />
       <div className="relative flex flex-1 flex-col gap-3 p-5">
         <div className="flex items-start justify-between gap-3">
@@ -89,15 +75,9 @@ function AppCard({ app }: { app: AppDownload }) {
               </div>
             </div>
           </div>
-          {available ? (
-            <span className={`inline-flex shrink-0 items-center gap-1.5 rounded-full border px-2.5 py-1 text-[11px] font-medium ${accent.chip}`}>
-              {app.version}
-            </span>
-          ) : (
-            <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-border bg-background/60 px-2.5 py-1 font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
-              {t({ pt: "Em breve", en: "Coming soon" })}
-            </span>
-          )}
+          <span className={`inline-flex shrink-0 items-center gap-1.5 rounded-full border px-2.5 py-1 text-[11px] font-medium ${accent.chip}`}>
+            {app.version}
+          </span>
         </div>
 
         <p className="text-sm leading-relaxed text-muted-foreground">
@@ -105,28 +85,17 @@ function AppCard({ app }: { app: AppDownload }) {
         </p>
 
         <div className="mt-auto flex items-center justify-between gap-3 pt-2">
-          {available && app.filename ? (
-            <>
-              <a
-                href={`./downloads/${app.filename}`}
-                download
-                className="inline-flex items-center gap-2 rounded-full bg-foreground px-4 py-2 text-sm font-medium text-background transition hover:bg-foreground/90"
-              >
-                <Download className="size-4" />
-                {t({ pt: "Baixar APK", en: "Download APK" })}
-              </a>
-              <span className="font-mono text-[11px] text-muted-foreground">
-                {app.size}
-              </span>
-            </>
-          ) : (
-            <span className="text-xs italic text-muted-foreground">
-              {t({
-                pt: "Disponível em breve.",
-                en: "Available soon.",
-              })}
-            </span>
-          )}
+          <a
+            href={`./downloads/${app.filename}`}
+            download
+            className="inline-flex items-center gap-2 rounded-full bg-foreground px-4 py-2 text-sm font-medium text-background transition hover:bg-foreground/90"
+          >
+            <Download className="size-4" />
+            {t({ pt: "Baixar APK", en: "Download APK" })}
+          </a>
+          <span className="font-mono text-[11px] text-muted-foreground">
+            {app.size}
+          </span>
         </div>
       </div>
     </article>
