@@ -26,7 +26,7 @@ export function Contact() {
 
       <div className="mx-auto max-w-2xl text-center">
         <div className="mb-3 font-mono text-xs uppercase tracking-widest text-muted-foreground">
-          {t({ pt: "05 · Contacto", en: "05 · Contact" })}
+          {t({ pt: "06 · Contacto", en: "06 · Contact" })}
         </div>
         <h2 className="text-4xl font-semibold tracking-tight md:text-5xl">
           {t({ pt: "Vamos falar", en: "Get in touch" })}

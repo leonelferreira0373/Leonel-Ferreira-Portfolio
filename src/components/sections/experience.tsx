@@ -7,7 +7,7 @@ export function Experience() {
   return (
     <section id="experience" className="py-16">
       <SectionHeading
-        kicker={t({ pt: "04 · Experiência", en: "04 · Experience" })}
+        kicker={t({ pt: "05 · Experiência", en: "05 · Experience" })}
         title={t({ pt: "Experiência profissional", en: "Work Experience" })}
       />
       <ol className="relative space-y-3">

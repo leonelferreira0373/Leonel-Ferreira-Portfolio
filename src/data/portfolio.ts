@@ -7,6 +7,10 @@ export const PROFILE = {
     pt: "Programador & Designer",
     en: "Programmer & Designer",
   } satisfies Bilingual,
+  currentRole: {
+    pt: "Gerente @ Geosstore",
+    en: "Manager @ Geosstore",
+  } satisfies Bilingual,
   location: "Luanda, Angola",
   email: "leonelferreira0373@gmail.com",
   whatsapp: "+244 945 321 186",
@@ -14,8 +18,8 @@ export const PROFILE = {
   github: "leonelferreira0373",
   githubUrl: "https://github.com/leonelferreira0373",
   bio: {
-    pt: "Programador & Designer a construir produtos digitais de ponta a ponta — apps, sistemas, websites, branding e gestão de redes sociais. Auto-didacta, à vontade com o ritmo de startup. Base em Luanda — trabalho remoto disponível.",
-    en: "Programmer & Designer building digital products end-to-end — apps, complex systems, websites, branding, and social media. Self-taught, comfortable with startup pace. Based in Luanda — remote-friendly.",
+    pt: "Programador & Designer a construir produtos digitais de ponta a ponta — apps, sistemas, websites, branding e gestão de redes sociais. Actualmente Gerente da Geosstore em Luanda, onde também opero a operação ponta-a-ponta. Auto-didacta, à vontade com o ritmo de startup.",
+    en: "Programmer & Designer building digital products end-to-end — apps, complex systems, websites, branding, and social media. Currently Manager at Geosstore in Luanda, where I also run the end-to-end operation. Self-taught, comfortable with startup pace.",
   } satisfies Bilingual,
 };
 
@@ -117,6 +121,74 @@ export const PROJECTS: Project[] = [
   },
 ];
 
+export type AppDownload = {
+  name: string;
+  blurb: Bilingual;
+  filename?: string;
+  size?: string;
+  version?: string;
+  status: "available" | "coming-soon";
+  platform: Bilingual;
+  icon: "moon" | "store" | "bike" | "eraser";
+  accent: "violet" | "amber" | "emerald" | "rose";
+};
+
+export const APPS: AppDownload[] = [
+  {
+    name: "LUME",
+    blurb: {
+      pt: "App Android de tarefas + alarmes com estética calma para mesa de cabeceira. Construída em Kotlin + Jetpack Compose.",
+      en: "Android to-do + alarm app with a calm nightstand aesthetic. Built in Kotlin + Jetpack Compose.",
+    },
+    filename: "lume.apk",
+    size: "6.6 MB",
+    version: "v1.0",
+    status: "available",
+    platform: { pt: "Android · Kotlin", en: "Android · Kotlin" },
+    icon: "moon",
+    accent: "violet",
+  },
+  {
+    name: "GEOSSTORE",
+    blurb: {
+      pt: "Wrapper Chromium da Geosstore — abre a loja em ecrã cheio, com notificações e cache offline.",
+      en: "Chromium wrapper for Geosstore — opens the storefront full-screen, with notifications and offline cache.",
+    },
+    filename: "geosstore.apk",
+    size: "1.2 MB",
+    version: "v1.0",
+    status: "available",
+    platform: { pt: "Android · Chromium", en: "Android · Chromium" },
+    icon: "store",
+    accent: "amber",
+  },
+  {
+    name: "BAZA",
+    blurb: {
+      pt: "App Android para passageiros do serviço de Moto-Táxi BAZA em Luanda. Pedidos anónimos, mapa em tempo real, IBAN para pagamento.",
+      en: "Passenger Android app for the BAZA moto-taxi service in Luanda. Anonymous orders, real-time map, IBAN payments.",
+    },
+    filename: "baza.apk",
+    size: "24 MB",
+    version: "beta",
+    status: "available",
+    platform: { pt: "Android · Kotlin", en: "Android · Kotlin" },
+    icon: "bike",
+    accent: "emerald",
+  },
+  {
+    name: "BG Remover",
+    blurb: {
+      pt: "Remoção de fundo em fotos directamente no telemóvel — modelos ONNX integrados, sem servidores. Disponível em breve via GitHub Releases.",
+      en: "On-device background removal for photos — bundled ONNX models, no server. Available soon via GitHub Releases.",
+    },
+    status: "coming-soon",
+    platform: { pt: "Android · ONNX", en: "Android · ONNX" },
+    icon: "eraser",
+    accent: "rose",
+  },
+];
+
 export type Experience = {
   company: string;
   role: Bilingual;
@@ -126,6 +198,32 @@ export type Experience = {
 };
 
 export const EXPERIENCE: Experience[] = [
+  {
+    company: "Geosstore",
+    role: {
+      pt: "Gerente",
+      en: "Manager",
+    },
+    period: { pt: "2025 — Em curso", en: "2025 — Ongoing" },
+    location: {
+      pt: "Loja de sapatilhas — Luanda",
+      en: "Sneaker store — Luanda",
+    },
+    bullets: [
+      {
+        pt: "Gestão diária da operação: loja física, equipa, fluxo de stock e atendimento ao cliente.",
+        en: "Day-to-day operations: physical store, team, stock flow, and customer service.",
+      },
+      {
+        pt: "Sourcing internacional entre EUA, Emirados, Turquia e Namíbia — selecção, importação e qualidade.",
+        en: "International sourcing across USA, UAE, Turkey, and Namibia — selection, import, and quality.",
+      },
+      {
+        pt: "Construção e manutenção do produto digital: storefront Next.js, API NestJS, app Android.",
+        en: "Built and maintain the digital product: Next.js storefront, NestJS API, Android app.",
+      },
+    ],
+  },
   {
     company: "RESDCEF",
     role: {

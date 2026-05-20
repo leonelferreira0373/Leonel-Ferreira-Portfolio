@@ -2,7 +2,7 @@ import { FlickeringGrid } from "@/components/magicui/flickering-grid";
 import { PROFILE } from "@/data/portfolio";
 import { useT } from "@/lib/i18n";
 import { useTheme } from "@/lib/theme";
-import { ArrowDownRight, MapPin } from "lucide-react";
+import { ArrowDownRight, Briefcase, MapPin } from "lucide-react";
 
 export function Hero() {
   const t = useT();
@@ -28,15 +28,21 @@ export function Hero() {
       <div className="flex flex-col items-start gap-8 md:grid md:items-center md:gap-10 md:grid-cols-[1fr_auto]">
         <Portrait className="md:order-2" />
         <div className="space-y-6 md:order-1">
-          <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card/60 px-3 py-1 text-xs text-muted-foreground backdrop-blur">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inset-0 animate-ping rounded-full bg-emerald-500/70" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="inline-flex items-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/10 px-3 py-1 text-xs font-medium text-amber-700 backdrop-blur dark:text-amber-300">
+              <Briefcase className="size-3.5" />
+              {t(PROFILE.currentRole)}
             </span>
-            {t({
-              pt: "Disponível para freelance · trabalho remoto",
-              en: "Available for freelance · remote-friendly",
-            })}
+            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card/60 px-3 py-1 text-xs text-muted-foreground backdrop-blur">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inset-0 animate-ping rounded-full bg-emerald-500/70" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+              </span>
+              {t({
+                pt: "Aberto a freelance · remoto",
+                en: "Open to freelance · remote",
+              })}
+            </span>
           </div>
 
           <h1 className="text-balance text-5xl font-semibold leading-[1.05] tracking-tight md:text-7xl">
