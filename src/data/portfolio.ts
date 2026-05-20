@@ -124,12 +124,12 @@ export const PROJECTS: Project[] = [
 export type AppDownload = {
   name: string;
   blurb: Bilingual;
-  filename: string;
+  url: string;
   size: string;
   version: string;
   platform: Bilingual;
-  icon: "moon" | "store" | "bike";
-  accent: "violet" | "amber" | "emerald";
+  icon: "moon" | "store" | "bike" | "eraser";
+  accent: "violet" | "amber" | "emerald" | "rose";
 };
 
 export const APPS: AppDownload[] = [
@@ -139,7 +139,7 @@ export const APPS: AppDownload[] = [
       pt: "App Android de tarefas + alarmes com estética calma para mesa de cabeceira. Construída em Kotlin + Jetpack Compose.",
       en: "Android to-do + alarm app with a calm nightstand aesthetic. Built in Kotlin + Jetpack Compose.",
     },
-    filename: "lume.apk",
+    url: "./downloads/lume.apk",
     size: "6.6 MB",
     version: "v1.0",
     platform: { pt: "Android · Kotlin", en: "Android · Kotlin" },
@@ -152,7 +152,7 @@ export const APPS: AppDownload[] = [
       pt: "Wrapper Chromium da Geosstore — abre a loja em ecrã cheio, com notificações e cache offline.",
       en: "Chromium wrapper for Geosstore — opens the storefront full-screen, with notifications and offline cache.",
     },
-    filename: "geosstore.apk",
+    url: "./downloads/geosstore.apk",
     size: "1.2 MB",
     version: "v1.0",
     platform: { pt: "Android · Chromium", en: "Android · Chromium" },
@@ -165,12 +165,25 @@ export const APPS: AppDownload[] = [
       pt: "App Android para passageiros do serviço de Moto-Táxi BAZA em Luanda. Pedidos anónimos, mapa em tempo real, IBAN para pagamento.",
       en: "Passenger Android app for the BAZA moto-taxi service in Luanda. Anonymous orders, real-time map, IBAN payments.",
     },
-    filename: "baza.apk",
+    url: "./downloads/baza.apk",
     size: "24 MB",
     version: "beta",
     platform: { pt: "Android · Kotlin", en: "Android · Kotlin" },
     icon: "bike",
     accent: "emerald",
+  },
+  {
+    name: "BG Remover",
+    blurb: {
+      pt: "Remoção de fundo em fotos directamente no telemóvel — modelos ONNX integrados, processamento offline e sem servidores.",
+      en: "On-device background removal for photos — bundled ONNX models, fully offline, no server required.",
+    },
+    url: "https://github.com/leonelferreira0373/Leonel-Ferreira-Portfolio/releases/download/apks-v1/bg-remover.apk",
+    size: "193 MB",
+    version: "v1.1.0",
+    platform: { pt: "Android · ONNX", en: "Android · ONNX" },
+    icon: "eraser",
+    accent: "rose",
   },
 ];
 

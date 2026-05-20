@@ -1,13 +1,14 @@
 import { APPS, type AppDownload } from "@/data/portfolio";
 import { SectionHeading } from "@/components/sections/about";
 import { useT } from "@/lib/i18n";
-import { Bike, Download, Moon, Store } from "lucide-react";
+import { Bike, Download, Eraser, Moon, Store } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 const ICONS: Record<AppDownload["icon"], LucideIcon> = {
   moon: Moon,
   store: Store,
   bike: Bike,
+  eraser: Eraser,
 };
 
 const ACCENTS: Record<AppDownload["accent"], { ring: string; bg: string; text: string; chip: string }> = {
@@ -29,6 +30,12 @@ const ACCENTS: Record<AppDownload["accent"], { ring: string; bg: string; text: s
     text: "text-emerald-600 dark:text-emerald-300",
     chip: "border-emerald-500/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300",
   },
+  rose: {
+    ring: "border-rose-500/30",
+    bg: "from-rose-500/15 via-rose-500/5 to-transparent",
+    text: "text-rose-600 dark:text-rose-300",
+    chip: "border-rose-500/30 bg-rose-500/10 text-rose-700 dark:text-rose-300",
+  },
 };
 
 export function Apps() {
@@ -46,7 +53,7 @@ export function Apps() {
           en: "Download my APKs directly. Enable \"Unknown sources\" on Android before installing.",
         })}
       />
-      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
         {APPS.map((app) => (
           <AppCard key={app.name} app={app} />
         ))}
@@ -86,7 +93,7 @@ function AppCard({ app }: { app: AppDownload }) {
 
         <div className="mt-auto flex items-center justify-between gap-3 pt-2">
           <a
-            href={`./downloads/${app.filename}`}
+            href={app.url}
             download
             className="inline-flex items-center gap-2 rounded-full bg-foreground px-4 py-2 text-sm font-medium text-background transition hover:bg-foreground/90"
           >
