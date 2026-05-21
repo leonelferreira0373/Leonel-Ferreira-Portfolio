@@ -86,6 +86,7 @@ export const PROJECTS: Project[] = [
       en: "Peer-to-peer file transfer between any two devices via QR code. Pure WebRTC — files never touch a server, only a brief signaling handshake. No accounts, no quality loss.",
     },
     href: "https://snapshare-share.vercel.app/",
+    image: "./projects/snapshare.jpg",
     tags: ["WebRTC", "PeerJS", "QR", "Privacy"],
     live: true,
   },
@@ -261,6 +262,11 @@ export const GALLERY: GalleryItem[] = [
     tab: "photo",
   },
   // Graphic design — reusing the branding/project images
+  {
+    src: "./projects/snapshare.jpg",
+    alt: { pt: "SnapShare — brand identity (Onyx, Bone, Emerald, Graphite)", en: "SnapShare — brand identity (Onyx, Bone, Emerald, Graphite)" },
+    tab: "design",
+  },
   {
     src: "./projects/geosstore.png",
     alt: { pt: "GEOSSTORE — identidade e storefront", en: "GEOSSTORE — branding and storefront" },
