@@ -80,6 +80,16 @@ export const PROJECTS: Project[] = [
     tags: ["HTML", "Kotlin", "Android", "Render", "Neon"],
   },
   {
+    name: "SnapShare",
+    blurb: {
+      pt: "Transferência de ficheiros peer-to-peer entre dois dispositivos via QR code. WebRTC puro — os ficheiros nunca passam por servidores, só um handshake de poucos KB. Sem contas, sem perda de qualidade.",
+      en: "Peer-to-peer file transfer between any two devices via QR code. Pure WebRTC — files never touch a server, only a brief signaling handshake. No accounts, no quality loss.",
+    },
+    href: "https://snapshare-share.vercel.app/",
+    tags: ["WebRTC", "PeerJS", "QR", "Privacy"],
+    live: true,
+  },
+  {
     name: "Vape Express",
     blurb: {
       pt: "Loja online de vapes para Angola — catálogo, identidade e storefront pensados para tráfego mobile local.",
