@@ -75,7 +75,17 @@ function AppCard({ app }: { app: AppDownload }) {
   const accent = ACCENTS[app.accent];
   return (
     <article className="relative flex flex-col overflow-hidden rounded-xl border border-border bg-card/40 backdrop-blur transition hover:-translate-y-0.5 hover:border-foreground/30 hover:bg-card">
-      <div className={`pointer-events-none absolute inset-x-0 top-0 -z-0 h-24 bg-gradient-to-b ${accent.bg}`} />
+      {app.cover ? (
+        <img
+          src={app.cover}
+          alt={`${app.name} cover`}
+          loading="lazy"
+          decoding="async"
+          className="aspect-video w-full border-b border-border object-cover"
+        />
+      ) : (
+        <div className={`pointer-events-none absolute inset-x-0 top-0 -z-0 h-24 bg-gradient-to-b ${accent.bg}`} />
+      )}
       <div className="relative flex flex-1 flex-col gap-3 p-5">
         <div className="flex items-start justify-between gap-3">
           <div className="flex items-center gap-3">

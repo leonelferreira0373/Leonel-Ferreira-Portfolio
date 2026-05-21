@@ -145,6 +145,7 @@ export type AppDownload = {
   kind: "apk" | "exe";
   icon: "moon" | "store" | "bike" | "eraser" | "palette";
   accent: "violet" | "amber" | "emerald" | "rose" | "sky";
+  cover?: string;
 };
 
 export const APPS: AppDownload[] = [
@@ -161,6 +162,7 @@ export const APPS: AppDownload[] = [
     kind: "apk",
     icon: "moon",
     accent: "violet",
+    cover: "./apps/lume.jpg",
   },
   {
     name: "GEOSSTORE",
