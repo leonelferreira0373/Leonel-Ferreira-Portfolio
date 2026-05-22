@@ -23,3 +23,5 @@ dist-ssr
 *.sln
 *.sw?
 .vercel
+public/downloads/bgremover*.apk
+public/downloads/bg-remover*.apk
