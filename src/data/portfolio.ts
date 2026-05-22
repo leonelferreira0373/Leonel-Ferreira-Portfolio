@@ -91,6 +91,16 @@ export const PROJECTS: Project[] = [
     live: true,
   },
   {
+    name: "RLT",
+    blurb: {
+      pt: "Marca de streetwear de Luanda — \"Crown the Streets\". Drops limitados (hoodies, joggers, beanies, t-shirts) com fotografia urbana de Luanda. Storefront com integração WhatsApp e newsletter de drops.",
+      en: "Luanda-based streetwear brand — \"Crown the Streets\". Limited drops (hoodies, joggers, beanies, t-shirts) shot against Luanda's urban landscape. Storefront with WhatsApp integration and drop newsletter.",
+    },
+    href: "https://rlt-ao.vercel.app/",
+    tags: ["Streetwear", "E-commerce", "Branding", "Web"],
+    live: true,
+  },
+  {
     name: "Vape Express",
     blurb: {
       pt: "Loja online de vapes para Angola — catálogo, identidade e storefront pensados para tráfego mobile local.",
