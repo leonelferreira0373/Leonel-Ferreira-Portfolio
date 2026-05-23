@@ -260,8 +260,8 @@ export type GalleryItem = {
 };
 
 export const GALLERY_TABS: { id: GalleryTab; label: Bilingual }[] = [
-  { id: "photo", label: { pt: "Trabalhos de Fotografia", en: "Photography Work" } },
   { id: "design", label: { pt: "Design Gráfico", en: "Graphic Design" } },
+  { id: "photo", label: { pt: "Trabalhos de Fotografia", en: "Photography Work" } },
   { id: "work", label: { pt: "Eu no Trabalho", en: "Me at Work" } },
   { id: "me", label: { pt: "Fotos Minhas", en: "Photos of Me" } },
 ];
