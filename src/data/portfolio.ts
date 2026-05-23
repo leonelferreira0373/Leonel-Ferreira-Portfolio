@@ -201,6 +201,7 @@ export const APPS: AppDownload[] = [
     kind: "apk",
     icon: "bike",
     accent: "emerald",
+    cover: "./apps/baza.jpg",
   },
   {
     name: "BG Remover",
