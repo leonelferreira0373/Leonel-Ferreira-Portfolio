@@ -155,7 +155,7 @@ export type AppDownload = {
   kind: "apk" | "exe";
   icon: "moon" | "store" | "bike" | "eraser" | "palette";
   accent: "violet" | "amber" | "emerald" | "rose" | "sky";
-  cover?: string;
+  cover?: string | string[];
 };
 
 export const APPS: AppDownload[] = [
@@ -208,13 +208,14 @@ export const APPS: AppDownload[] = [
       pt: "Remoção de fundo em fotos directamente no telemóvel — modelos ONNX integrados, processamento offline e sem servidores.",
       en: "On-device background removal for photos — bundled ONNX models, fully offline, no server required.",
     },
-    url: "./downloads/bgremover.apk",
+    url: "https://github.com/leonelferreira0373/Leonel-Ferreira-Portfolio/releases/download/apks-v1/bg-remover.apk",
     size: "193.2 MB",
     version: "v1.2.1",
     platform: { pt: "Android · ONNX", en: "Android · ONNX" },
     kind: "apk",
     icon: "eraser",
     accent: "rose",
+    cover: ["./apps/bgremover-1.jpg", "./apps/bgremover-2.jpg"],
   },
   {
     name: "BG Remover PC",

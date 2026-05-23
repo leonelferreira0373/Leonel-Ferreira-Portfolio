@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { APPS, type AppDownload } from "@/data/portfolio";
 import { SectionHeading } from "@/components/sections/about";
 import { useT } from "@/lib/i18n";
@@ -69,23 +70,47 @@ export function Apps() {
   );
 }
 
+function AppCover({ cover, name, accentBg }: { cover?: string | string[]; name: string; accentBg: string }) {
+  const [activeIdx, setActiveIdx] = useState(0);
+  const covers = Array.isArray(cover) ? cover : cover ? [cover] : [];
+
+  useEffect(() => {
+    if (covers.length <= 1) return;
+    const interval = setInterval(() => {
+      setActiveIdx((prev) => (prev + 1) % covers.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [covers.length]);
+
+  if (covers.length === 0) {
+    return <div className={`pointer-events-none absolute inset-x-0 top-0 -z-0 h-24 bg-gradient-to-b ${accentBg}`} />;
+  }
+
+  return (
+    <div className="relative aspect-video w-full overflow-hidden border-b border-border bg-black/10">
+      {covers.map((src, idx) => (
+        <img
+          key={src}
+          src={src}
+          alt={`${name} cover ${idx + 1}`}
+          loading="lazy"
+          decoding="async"
+          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${
+            idx === activeIdx ? "opacity-100" : "opacity-0"
+          }`}
+        />
+      ))}
+    </div>
+  );
+}
+
 function AppCard({ app }: { app: AppDownload }) {
   const t = useT();
   const Icon = ICONS[app.icon];
   const accent = ACCENTS[app.accent];
   return (
     <article className="relative flex flex-col overflow-hidden rounded-xl border border-border bg-card/40 backdrop-blur transition hover:-translate-y-0.5 hover:border-foreground/30 hover:bg-card">
-      {app.cover ? (
-        <img
-          src={app.cover}
-          alt={`${app.name} cover`}
-          loading="lazy"
-          decoding="async"
-          className="aspect-video w-full border-b border-border object-cover"
-        />
-      ) : (
-        <div className={`pointer-events-none absolute inset-x-0 top-0 -z-0 h-24 bg-gradient-to-b ${accent.bg}`} />
-      )}
+      <AppCover cover={app.cover} name={app.name} accentBg={accent.bg} />
       <div className="relative flex flex-1 flex-col gap-3 p-5">
         <div className="flex items-start justify-between gap-3">
           <div className="flex items-center gap-3">
