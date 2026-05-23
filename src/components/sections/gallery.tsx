@@ -1,16 +1,32 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect, useRef } from "react";
 import { GALLERY, GALLERY_TABS, type GalleryTab } from "@/data/portfolio";
 import { SectionHeading } from "@/components/sections/about";
 import { useT } from "@/lib/i18n";
 
 export function Gallery() {
   const t = useT();
-  const [active, setActive] = useState<GalleryTab>("photo");
+  const [active, setActive] = useState<GalleryTab>("design");
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   const items = useMemo(
     () => GALLERY.filter((g) => g.tab === active),
     [active],
   );
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (scrollRef.current) {
+        const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+        // If we are at the end, jump to start, otherwise scroll by a fraction of the width
+        if (scrollLeft + clientWidth >= scrollWidth - 10) {
+          scrollRef.current.scrollTo({ left: 0, behavior: "smooth" });
+        } else {
+          scrollRef.current.scrollBy({ left: clientWidth * 0.8, behavior: "smooth" });
+        }
+      }
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [items]);
 
   return (
     <section id="gallery" className="py-16">
@@ -58,7 +74,7 @@ export function Gallery() {
         aria-label={t(GALLERY_TABS.find((x) => x.id === active)!.label)}
         className="-mx-5 sm:-mx-8"
       >
-        <div className="flex snap-x snap-mandatory gap-3 overflow-x-auto px-[10%] py-2 items-center [scroll-padding-inline:10%] [scrollbar-width:none] md:px-[20%] md:[scroll-padding-inline:20%] [&::-webkit-scrollbar]:hidden">
+        <div ref={scrollRef} className="flex snap-x snap-mandatory gap-3 overflow-x-auto px-[10%] py-2 items-center [scroll-padding-inline:10%] [scrollbar-width:none] md:px-[20%] md:[scroll-padding-inline:20%] [&::-webkit-scrollbar]:hidden">
           {items.map((g, i) => (
             <img
               key={g.src}

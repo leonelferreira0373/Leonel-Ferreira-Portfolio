@@ -188,6 +188,7 @@ export const APPS: AppDownload[] = [
     kind: "apk",
     icon: "store",
     accent: "amber",
+    cover: "./projects/geosstore.jpg",
   },
   {
     name: "BAZA",

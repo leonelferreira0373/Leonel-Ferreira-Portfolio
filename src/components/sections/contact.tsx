@@ -1,9 +1,10 @@
+import { useState, useEffect } from "react";
 import { FlickeringGrid } from "@/components/magicui/flickering-grid";
 import { PROFILE } from "@/data/portfolio";
 import { GithubIcon, InstagramIcon, LinkedInIcon, WhatsAppIcon } from "@/components/brand-icons";
 import { useT, useLang } from "@/lib/i18n";
 import { useTheme } from "@/lib/theme";
-import { Mail } from "lucide-react";
+import { Mail, Download } from "lucide-react";
 
 export function Contact() {
   const t = useT();
@@ -11,6 +12,28 @@ export function Contact() {
   const { theme } = useTheme();
   const gridColor =
     theme === "dark" ? "rgb(255,255,255)" : "rgb(0,0,0)";
+  const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
+
+  useEffect(() => {
+    const handleBeforeInstallPrompt = (e: any) => {
+      e.preventDefault();
+      setDeferredPrompt(e);
+    };
+    window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
+    return () => window.removeEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
+  }, []);
+
+  const handleInstallClick = async () => {
+    if (!deferredPrompt) {
+      alert(lang === "pt" ? "App já instalada ou navegador não suportado." : "App already installed or not supported by your browser.");
+      return;
+    }
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    if (outcome === "accepted") {
+      setDeferredPrompt(null);
+    }
+  };
 
   return (
     <section id="contact" className="relative isolate overflow-hidden py-24">
@@ -108,6 +131,12 @@ export function Contact() {
           >
             <InstagramIcon className="size-4" /> @{PROFILE.instagram}
           </a>
+          <button
+            onClick={handleInstallClick}
+            className="inline-flex items-center gap-2 rounded-full border border-border bg-card/60 px-5 py-2.5 text-sm font-medium backdrop-blur transition hover:bg-card cursor-pointer"
+          >
+            <Download className="size-4" /> {t({ pt: "Baixar", en: "Download" })}
+          </button>
         </div>
       </div>
     </section>
