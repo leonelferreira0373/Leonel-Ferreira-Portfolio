@@ -66,7 +66,7 @@ export const PROJECTS: Project[] = [
       en: "End-to-end sneaker e-commerce for Luanda — international sourcing from USA, UAE, Turkey & Namibia. Next.js storefront on Vercel, NestJS API on Render, Supabase for DB/Auth/Storage.",
     },
     href: "https://geosstore.store",
-    image: "./projects/geosstore.png",
+    image: "./projects/geosstore.jpg",
     tags: ["Next.js", "NestJS", "Supabase", "Vercel", "Render"],
     live: true,
   },
