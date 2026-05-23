@@ -231,6 +231,7 @@ export const APPS: AppDownload[] = [
     kind: "exe",
     icon: "eraser",
     accent: "rose",
+    cover: ["./apps/bgremover-pc-1.jpg", "./apps/bgremover-pc-2.jpg"],
   },
   {
     name: "Klip",

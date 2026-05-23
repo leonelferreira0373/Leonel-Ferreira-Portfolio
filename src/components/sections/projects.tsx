@@ -8,10 +8,10 @@ export function Projects() {
   return (
     <section id="projects" className="py-16">
       <SectionHeading
-        kicker={t({ pt: "03 · Projectos", en: "03 · Projects" })}
+        kicker={t({ pt: "03 · Websites", en: "03 · Websites" })}
         title={t({
-          pt: "Trabalhos recentes",
-          en: "Check out my latest work",
+          pt: "Websites que desenvolvi",
+          en: "Websites I've developed",
         })}
         description={t({
           pt: "Mistura de produtos lançados e trabalho de cliente — e-commerce, identidade e apps Android.",

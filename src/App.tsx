@@ -44,7 +44,7 @@ function NavBar() {
   const links = [
     { href: "#about", label: { pt: "Sobre", en: "About" } },
     { href: "#skills", label: { pt: "Competências", en: "Skills" } },
-    { href: "#projects", label: { pt: "Projectos", en: "Projects" } },
+    { href: "#projects", label: { pt: "Websites", en: "Websites" } },
     { href: "#apps", label: { pt: "Apps", en: "Apps" } },
     { href: "#gallery", label: { pt: "Galeria", en: "Gallery" } },
     { href: "#experience", label: { pt: "Experiência", en: "Experience" } },
