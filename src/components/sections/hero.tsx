@@ -2,7 +2,9 @@ import { FlickeringGrid } from "@/components/magicui/flickering-grid";
 import { PROFILE } from "@/data/portfolio";
 import { useT } from "@/lib/i18n";
 import { useTheme } from "@/lib/theme";
-import { ArrowDownRight, Briefcase, MapPin } from "lucide-react";
+import { incrementCounter } from "@/lib/counter";
+import { ArrowDownRight, Briefcase, Eye, MapPin } from "lucide-react";
+import { useEffect, useState } from "react";
 
 export function Hero() {
   const t = useT();
@@ -43,6 +45,7 @@ export function Hero() {
                 en: "Open to freelance · remote",
               })}
             </span>
+            <PageViewsBadge />
           </div>
 
           <h1 className="text-balance text-5xl font-semibold leading-[1.05] tracking-tight md:text-7xl">
@@ -78,6 +81,30 @@ export function Hero() {
 
       </div>
     </section>
+  );
+}
+
+/** Fires a page-view hit on first render and shows the running total. */
+function PageViewsBadge() {
+  const t = useT();
+  const [views, setViews] = useState<number | null>(null);
+
+  useEffect(() => {
+    // Increment first so the visitor counts themselves
+    incrementCounter("page-views").then((val) => setViews(val));
+  }, []);
+
+  // Don't render until we have a value
+  if (views === null) return null;
+
+  return (
+    <span
+      title={t({ pt: `${views} visitas ao site`, en: `${views} site visits` })}
+      className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card/60 px-3 py-1 text-xs text-muted-foreground backdrop-blur"
+    >
+      <Eye className="size-3.5" />
+      {views.toLocaleString()}
+    </span>
   );
 }
 
