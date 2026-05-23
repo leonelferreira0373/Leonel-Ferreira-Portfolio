@@ -346,6 +346,112 @@ export const GALLERY: GalleryItem[] = [
     alt: { pt: "Estampado tradicional", en: "Traditional pattern" },
     tab: "me",
   },
+  // Novas adições de design
+  {
+    src: "./gallery/gd-anime.png",
+    alt: { pt: "ANIME", en: "ANIME" },
+    tab: "design",
+  },
+  {
+    src: "./gallery/gd-ctt.png",
+    alt: { pt: "CTT", en: "CTT" },
+    tab: "design",
+  },
+  {
+    src: "./gallery/gd-c-pia-de-anime-1.png",
+    alt: { pt: "Cópia de ANIME (1)", en: "Copy of ANIME (1)" },
+    tab: "design",
+  },
+  {
+    src: "./gallery/gd-c-pia-de-anime.png",
+    alt: { pt: "Cópia de ANIME", en: "Copy of ANIME" },
+    tab: "design",
+  },
+  {
+    src: "./gallery/gd-c-pia-de-zara.png",
+    alt: { pt: "Cópia de ZARA", en: "Copy of ZARA" },
+    tab: "design",
+  },
+  {
+    src: "./gallery/gd-daytona.png",
+    alt: { pt: "DAYTONA", en: "DAYTONA" },
+    tab: "design",
+  },
+  {
+    src: "./gallery/gd-demon-1080-x-1350-px.png",
+    alt: { pt: "DEMON", en: "DEMON" },
+    tab: "design",
+  },
+  {
+    src: "./gallery/gd-dinheiro-resolve-problemas.png",
+    alt: { pt: "Dinheiro resolve problemas", en: "Money solves problems" },
+    tab: "design",
+  },
+  {
+    src: "./gallery/gd-drones-djene-design.png",
+    alt: { pt: "Drones Djene Design", en: "Drones Djene Design" },
+    tab: "design",
+  },
+  {
+    src: "./gallery/gd-fernando-mec-nico-feliz-natal-design.png",
+    alt: { pt: "Fernando Mecânico Feliz Natal", en: "Fernando Mechanic Merry Christmas" },
+    tab: "design",
+  },
+  {
+    src: "./gallery/gd-jeep.png",
+    alt: { pt: "JEEP", en: "JEEP" },
+    tab: "design",
+  },
+  {
+    src: "./gallery/gd-l-witti-rudpher.png",
+    alt: { pt: "L'Witti Rudpher", en: "L'Witti Rudpher" },
+    tab: "design",
+  },
+  {
+    src: "./gallery/gd-leo-f.png",
+    alt: { pt: "Leo F.", en: "Leo F." },
+    tab: "design",
+  },
+  {
+    src: "./gallery/gd-marketing-digital-floriano.png",
+    alt: { pt: "Marketing Digital Floriano", en: "Digital Marketing Floriano" },
+    tab: "design",
+  },
+  {
+    src: "./gallery/gd-mopar.png",
+    alt: { pt: "MOPAR", en: "MOPAR" },
+    tab: "design",
+  },
+  {
+    src: "./gallery/gd-personal-growth.png",
+    alt: { pt: "Personal Growth", en: "Personal Growth" },
+    tab: "design",
+  },
+  {
+    src: "./gallery/gd-porsche-911-x-ti-nuno-original.png",
+    alt: { pt: "Porsche 911 x Ti Nuno", en: "Porsche 911 x Ti Nuno" },
+    tab: "design",
+  },
+  {
+    src: "./gallery/gd-ref-ant-etmba.png",
+    alt: { pt: "REF ANT-ETMBA", en: "REF ANT-ETMBA" },
+    tab: "design",
+  },
+  {
+    src: "./gallery/gd-resdcef-procurement.png",
+    alt: { pt: "RESDCEF PROCUREMENT", en: "RESDCEF PROCUREMENT" },
+    tab: "design",
+  },
+  {
+    src: "./gallery/gd-uns-disseram-cai.png",
+    alt: { pt: "Uns disseram Cai", en: "Some said Fall" },
+    tab: "design",
+  },
+  {
+    src: "./gallery/gd-you-dont-want-no.png",
+    alt: { pt: "YOU DONT WANT NO", en: "YOU DONT WANT NO" },
+    tab: "design",
+  },
 ];
 
 export type Experience = {
