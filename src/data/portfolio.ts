@@ -247,6 +247,7 @@ export const APPS: AppDownload[] = [
     kind: "exe",
     icon: "palette",
     accent: "sky",
+    cover: "./apps/klip.jpg",
   },
 ];
 
