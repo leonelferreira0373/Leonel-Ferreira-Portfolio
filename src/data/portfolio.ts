@@ -140,6 +140,7 @@ export const PROJECTS: Project[] = [
       en: "This site — a personal showcase. React + Vite + Tailwind, MagicUI animations, deployed to GitHub Pages.",
     },
     href: "https://github.com/leonelferreira0373/Leonel-Ferreira-Portfolio",
+    image: "./projects/portfolio.jpg",
     tags: ["React", "Vite", "Tailwind", "MagicUI"],
     live: true,
   },
