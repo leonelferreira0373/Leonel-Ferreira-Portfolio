@@ -24,6 +24,11 @@ export async function incrementCounter(slug: string): Promise<number> {
       headers: {
         Authorization: `Bearer ${API_KEY}`,
       },
+      // keepalive: true ensures the request survives page navigation.
+      // Without this, clicking a download link or external project link
+      // causes the browser to cancel the in-flight fetch before it reaches
+      // the server.
+      keepalive: true,
     });
     if (!res.ok) return 0;
     const json = await res.json();
