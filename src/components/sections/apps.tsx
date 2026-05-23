@@ -4,6 +4,7 @@ import { SectionHeading } from "@/components/sections/about";
 import { useT } from "@/lib/i18n";
 import { Bike, Download, Eraser, Moon, Palette, Store } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import { getCounterValue, incrementCounter } from "@/lib/counter";
 
 const ICONS: Record<AppDownload["icon"], LucideIcon> = {
   moon: Moon,
@@ -108,6 +109,26 @@ function AppCard({ app }: { app: AppDownload }) {
   const t = useT();
   const Icon = ICONS[app.icon];
   const accent = ACCENTS[app.accent];
+  const [downloads, setDownloads] = useState<number | null>(null);
+
+  const counterSlug = `download-${app.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
+
+  useEffect(() => {
+    getCounterValue(counterSlug).then((val) => {
+      if (val > 0) {
+        setDownloads(val);
+      }
+    });
+  }, [counterSlug]);
+
+  const handleDownload = () => {
+    incrementCounter(counterSlug).then((val) => {
+      if (val > 0) {
+        setDownloads(val);
+      }
+    });
+  };
+
   return (
     <article className="relative flex flex-col overflow-hidden rounded-xl border border-border bg-card/40 backdrop-blur transition hover:-translate-y-0.5 hover:border-foreground/30 hover:bg-card">
       <AppCover cover={app.cover} name={app.name} accentBg={accent.bg} />
@@ -137,6 +158,7 @@ function AppCard({ app }: { app: AppDownload }) {
           <a
             href={app.url}
             download
+            onClick={handleDownload}
             className="inline-flex items-center gap-2 rounded-full bg-foreground px-4 py-2 text-sm font-medium text-background transition hover:bg-foreground/90"
           >
             <Download className="size-4" />
@@ -144,9 +166,14 @@ function AppCard({ app }: { app: AppDownload }) {
               ? t({ pt: "Baixar EXE", en: "Download EXE" })
               : t({ pt: "Baixar APK", en: "Download APK" })}
           </a>
-          <span className="font-mono text-[11px] text-muted-foreground">
-            {app.size}
-          </span>
+          <div className="flex items-center gap-2 font-mono text-[11px] text-muted-foreground">
+            <span>{app.size}</span>
+            {downloads !== null && downloads > 0 && (
+              <span className="inline-flex items-center gap-0.5 text-muted-foreground/80">
+                • <Download className="size-3" /> {downloads}
+              </span>
+            )}
+          </div>
         </div>
       </div>
     </article>

@@ -1,7 +1,9 @@
+import { useState, useEffect } from "react";
 import { PROJECTS, type Project } from "@/data/portfolio";
 import { SectionHeading } from "@/components/sections/about";
 import { useT } from "@/lib/i18n";
-import { ArrowUpRight, ExternalLink } from "lucide-react";
+import { ArrowUpRight, ExternalLink, Eye } from "lucide-react";
+import { getCounterValue, incrementCounter } from "@/lib/counter";
 
 export function Projects() {
   const t = useT();
@@ -30,9 +32,31 @@ export function Projects() {
 function ProjectCard({ project }: { project: Project }) {
   const t = useT();
   const { name, blurb, href, image, tags, live } = project;
+  const [visits, setVisits] = useState<number | null>(null);
+
+  const counterSlug = `visit-${name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
+
+  useEffect(() => {
+    if (!href) return;
+    getCounterValue(counterSlug).then((val) => {
+      if (val > 0) {
+        setVisits(val);
+      }
+    });
+  }, [counterSlug, href]);
+
+  const handleClick = () => {
+    if (!href) return;
+    incrementCounter(counterSlug).then((val) => {
+      if (val > 0) {
+        setVisits(val);
+      }
+    });
+  };
+
   const Wrapper = href ? "a" : "div";
   const wrapperProps = href
-    ? { href, target: "_blank", rel: "noreferrer" }
+    ? { href, target: "_blank", rel: "noreferrer", onClick: handleClick }
     : {};
   return (
     <Wrapper
@@ -66,7 +90,14 @@ function ProjectCard({ project }: { project: Project }) {
 
       <div className="flex flex-1 flex-col gap-3 p-5">
         <div className="flex items-start justify-between gap-3">
-          <h3 className="text-lg font-semibold tracking-tight">{name}</h3>
+          <div className="flex items-baseline gap-2">
+            <h3 className="text-lg font-semibold tracking-tight">{name}</h3>
+            {visits !== null && visits > 0 && (
+              <span className="font-mono text-[10px] text-muted-foreground/80 flex items-center gap-0.5" title={`${visits} ${t({ pt: "visitas", en: "visits" })}`}>
+                <Eye className="size-3" /> {visits}
+              </span>
+            )}
+          </div>
           <ArrowUpRight className="size-4 text-muted-foreground transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-foreground" />
         </div>
         <p className="text-sm leading-relaxed text-muted-foreground">
