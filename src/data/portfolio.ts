@@ -97,7 +97,7 @@ export const PROJECTS: Project[] = [
       en: "Luanda-based streetwear brand — \"Crown the Streets\". Limited drops (hoodies, joggers, beanies, t-shirts) shot against Luanda's urban landscape. Storefront with WhatsApp integration and drop newsletter.",
     },
     href: "https://rlt-ao.vercel.app/",
-    image: "./projects/rlt.png",
+    image: "./projects/rlt.jpg",
     tags: ["Streetwear", "E-commerce", "Branding", "Web"],
     live: true,
   },
