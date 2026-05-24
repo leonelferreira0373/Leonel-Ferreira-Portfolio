@@ -287,7 +287,7 @@ export const GALLERY: GalleryItem[] = [
     tab: "design",
   },
   {
-    src: "./gallery/gd-geosstore-character.png",
+    src: "./gallery/gd-geosstore-character.jpg",
     alt: { pt: "GEOSSTORE - Mascote Cartoon", en: "GEOSSTORE - Cartoon Mascot" },
     tab: "design",
   },
