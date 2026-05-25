@@ -55,7 +55,7 @@ export type Project = {
   href?: string;
   image?: string;
   tags: string[];
-  live?: boolean;
+  status?: "online" | "beta";
 };
 
 export const PROJECTS: Project[] = [
@@ -68,7 +68,7 @@ export const PROJECTS: Project[] = [
     href: "https://geosstore.store",
     image: "./projects/geosstore.jpg",
     tags: ["Next.js", "NestJS", "Supabase", "Vercel", "Render"],
-    live: true,
+    status: "online",
   },
   {
     name: "Miragem",
@@ -79,7 +79,7 @@ export const PROJECTS: Project[] = [
     href: "https://miragem-resort.vercel.app",
     image: "./projects/miragem.jpg",
     tags: ["Hospitality", "PWA", "i18n", "Branding"],
-    live: true,
+    status: "beta",
   },
   {
     name: "Stravages",
@@ -90,7 +90,7 @@ export const PROJECTS: Project[] = [
     href: "https://plug-empire.vercel.app/",
     image: "./projects/stravages.jpg",
     tags: ["Next.js", "Streetwear", "E-commerce", "Branding"],
-    live: true,
+    status: "beta",
   },
   {
     name: "BAZA",
@@ -101,7 +101,7 @@ export const PROJECTS: Project[] = [
     image: "./projects/baza.jpg",
     href: "https://bazza-taxi.github.io/bazza-taxi/",
     tags: ["HTML", "Kotlin", "Android", "Render", "Neon"],
-    live: true,
+    status: "beta",
   },
   {
     name: "SnapShare",
@@ -112,10 +112,10 @@ export const PROJECTS: Project[] = [
     href: "https://snapshare-share.vercel.app/",
     image: "./projects/snapshare.jpg",
     tags: ["WebRTC", "PeerJS", "QR", "Privacy"],
-    live: true,
+    status: "beta",
   },
   {
-    name: "RLT",
+    name: "RLT - ROYALTY ANGOLA",
     blurb: {
       pt: "Marca de streetwear de Luanda — \"Crown the Streets\". Drops limitados (hoodies, joggers, beanies, t-shirts) com fotografia urbana de Luanda. Storefront com integração WhatsApp e newsletter de drops.",
       en: "Luanda-based streetwear brand — \"Crown the Streets\". Limited drops (hoodies, joggers, beanies, t-shirts) shot against Luanda's urban landscape. Storefront with WhatsApp integration and drop newsletter.",
@@ -123,7 +123,7 @@ export const PROJECTS: Project[] = [
     href: "https://rlt-ao.vercel.app/",
     image: "./projects/rlt.png",
     tags: ["Streetwear", "E-commerce", "Branding", "Web"],
-    live: true,
+    status: "beta",
   },
   {
     name: "Vape Express",
@@ -134,7 +134,7 @@ export const PROJECTS: Project[] = [
     href: "https://vape-express.github.io/Vape-Express/",
     image: "./projects/vape-express.png",
     tags: ["E-commerce", "Branding", "Web"],
-    live: true,
+    status: "beta",
   },
   {
     name: "Roast and Donut",
@@ -145,7 +145,7 @@ export const PROJECTS: Project[] = [
     href: "https://leonelferreira0373.github.io/Roast-and-Donut/",
     image: "./projects/roast-and-donut.png",
     tags: ["Branding", "Identity", "Web"],
-    live: true,
+    status: "beta",
   },
   {
     name: "Orizonte Logística",
@@ -156,7 +156,7 @@ export const PROJECTS: Project[] = [
     href: "https://leonelferreira0373.github.io/Orizonte-Logistica/",
     image: "./projects/orizonte.png",
     tags: ["Logistics", "Branding", "Web"],
-    live: true,
+    status: "beta",
   },
   {
     name: "Leonel-Ferreira-Portfolio",
@@ -167,7 +167,7 @@ export const PROJECTS: Project[] = [
     href: "https://github.com/leonelferreira0373/Leonel-Ferreira-Portfolio",
     image: "./projects/portfolio.jpg",
     tags: ["React", "Vite", "Tailwind", "MagicUI"],
-    live: true,
+    status: "beta",
   },
 ];
 

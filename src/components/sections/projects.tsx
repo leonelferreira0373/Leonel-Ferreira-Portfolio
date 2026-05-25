@@ -31,7 +31,7 @@ export function Projects() {
 
 function ProjectCard({ project }: { project: Project }) {
   const t = useT();
-  const { name, blurb, href, image, tags, live } = project;
+  const { name, blurb, href, image, tags, status } = project;
   const [visits, setVisits] = useState<number | null>(null);
 
   const counterSlug = `visit-${name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
@@ -79,11 +79,16 @@ function ProjectCard({ project }: { project: Project }) {
         ) : (
           <ProjectPlaceholder name={name} />
         )}
-        {live ? (
+        {status === "online" ? (
           <span className="absolute right-3 top-3 inline-flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/15 px-2.5 py-1 text-[11px] font-medium text-emerald-700 backdrop-blur dark:text-emerald-300">
             <span className="size-1.5 rounded-full bg-emerald-500" />
             {t({ pt: "Online", en: "Live" })}
             <ExternalLink className="size-3" />
+          </span>
+        ) : status === "beta" ? (
+          <span className="absolute right-3 top-3 inline-flex items-center gap-1.5 rounded-full border border-amber-500/30 bg-amber-500/15 px-2.5 py-1 text-[11px] font-medium text-amber-700 backdrop-blur dark:text-amber-300">
+            <span className="size-1.5 rounded-full bg-amber-500" />
+            Beta
           </span>
         ) : null}
       </div>
