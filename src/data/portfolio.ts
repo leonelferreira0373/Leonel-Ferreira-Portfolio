@@ -71,6 +71,28 @@ export const PROJECTS: Project[] = [
     live: true,
   },
   {
+    name: "Miragem",
+    blurb: {
+      pt: "Website-vitrine para um resort de luxo em Huambo, Angola — demo Fase 0. PWA instalável, 8 idiomas (incl. línguas nacionais angolanas), conversão de moeda AOA/EUR/USD, pesquisa e fluxo de reserva. Estética editorial: Nike no desktop, Farfetch no mobile.",
+      en: "Showcase site for a luxury resort in Huambo, Angola — a Phase 0 demo. Installable PWA, 8 languages (incl. Angolan national languages), AOA/EUR/USD currency conversion, search, and a booking flow. Editorial aesthetic: Nike on desktop, Farfetch on mobile.",
+    },
+    href: "https://miragem-resort.vercel.app",
+    image: "./projects/miragem.jpg",
+    tags: ["Hospitality", "PWA", "i18n", "Branding"],
+    live: true,
+  },
+  {
+    name: "Stravages",
+    blurb: {
+      pt: "Marca de streetwear premium — beanies, balaclavas e conjuntos com bordados a ouro sobre preto. Storefront Next.js com catálogo, página de produto, checkout via WhatsApp e envio para todo o país. Identidade «mais que roupa — uma presença».",
+      en: "Premium streetwear brand — beanies, balaclavas, and sets with gold embroidery on black. Next.js storefront with catalogue, product pages, WhatsApp checkout, and nationwide shipping. Identity built around 'more than clothing — a presence.'",
+    },
+    href: "https://plug-empire.vercel.app/",
+    image: "./projects/stravages.jpg",
+    tags: ["Next.js", "Streetwear", "E-commerce", "Branding"],
+    live: true,
+  },
+  {
     name: "BAZA",
     blurb: {
       pt: "Serviço de Moto-Táxi para Luanda. Landing page, app Android (Kotlin) para motoristas e backend planeado em Render + Neon. Construído com um amigo para resolver transporte local a sério.",
