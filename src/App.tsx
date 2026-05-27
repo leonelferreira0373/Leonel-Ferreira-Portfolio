@@ -31,9 +31,9 @@ export default function App() {
         <Divider />
         <Gallery />
         <Divider />
-        <Experience />
-        <Divider />
         <Estimate />
+        <Divider />
+        <Experience />
         <Divider />
         <Contact />
       </main>
@@ -50,8 +50,8 @@ function NavBar() {
     { href: "#projects", label: { pt: "Websites", en: "Websites" } },
     { href: "#apps", label: { pt: "Apps", en: "Apps" } },
     { href: "#gallery", label: { pt: "Galeria", en: "Gallery" } },
-    { href: "#experience", label: { pt: "Experiência", en: "Experience" } },
     { href: "#orcamento", label: { pt: "Orçamento", en: "Estimate" } },
+    { href: "#experience", label: { pt: "Experiência", en: "Experience" } },
     { href: "#contact", label: { pt: "Contacto", en: "Contact" } },
   ];
   return (

@@ -110,7 +110,7 @@ export function Estimate() {
   return (
     <section id="orcamento" className="py-16">
       <SectionHeading
-        kicker={t({ pt: "07 · Orçamento", en: "07 · Estimate" })}
+        kicker={t({ pt: "06 · Orçamento", en: "06 · Estimate" })}
         title={t({ pt: "Calcula o teu projeto", en: "Estimate your project" })}
         description={t({
           pt: "Crio praticamente qualquer coisa — apps, lojas, sistemas, convites. Escolhe o tipo, ajusta a complexidade e vê uma estimativa instantânea.",
