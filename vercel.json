@@ -1,5 +1,7 @@
 {
   "redirects": [
-    { "source": "/orcamento", "destination": "/#orcamento", "permanent": false }
+    { "source": "/orcamento", "destination": "/#orcamento", "permanent": false },
+    { "source": "/orçamento", "destination": "/#orcamento", "permanent": false },
+    { "source": "/or%C3%A7amento", "destination": "/#orcamento", "permanent": false }
   ]
 }
