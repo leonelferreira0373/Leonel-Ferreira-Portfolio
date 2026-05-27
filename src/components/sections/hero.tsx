@@ -61,17 +61,17 @@ export function Hero() {
 
           <div className="flex flex-wrap items-center gap-3 pt-2">
             <a
+              href="#orcamento"
+              className="inline-flex items-center gap-2 rounded-full border border-border bg-card/60 px-5 py-2.5 text-sm font-medium text-foreground/90 backdrop-blur transition hover:bg-card"
+            >
+              {t({ pt: "Pedir Orçamento", en: "Request a quote" })}
+            </a>
+            <a
               href="#projects"
               className="group inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-2.5 text-sm font-medium text-background transition hover:bg-foreground/90"
             >
               {t({ pt: "Ver trabalhos", en: "View work" })}
               <ArrowDownRight className="size-4 transition group-hover:translate-x-0.5 group-hover:translate-y-0.5" />
-            </a>
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2 rounded-full border border-border bg-card/60 px-5 py-2.5 text-sm font-medium text-foreground/90 backdrop-blur transition hover:bg-card"
-            >
-              {t({ pt: "Vamos falar", en: "Get in touch" })}
             </a>
             <span className="inline-flex items-center gap-1.5 pl-1 text-xs text-muted-foreground">
               <MapPin className="size-3.5" /> {PROFILE.location}
