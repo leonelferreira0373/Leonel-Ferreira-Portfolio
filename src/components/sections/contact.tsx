@@ -41,6 +41,14 @@ export function Contact() {
       : "Hi Leonel! 👋 My name is (preencher) and I'd like to talk about a project. Can we chat?";
   const waHref = `${PROFILE.whatsappLink}?text=${encodeURIComponent(waMessage)}`;
 
+  const emailSubject =
+    lang === "pt" ? "Interesse num projeto" : "Interested in a project";
+  const emailBody =
+    lang === "pt"
+      ? "Olá Leonel!\n\nO meu nome é (preencher) e gostava de falar sobre um projeto. Quando podemos conversar?\n\nObrigado!"
+      : "Hi Leonel!\n\nMy name is (preencher) and I'd like to talk about a project. When can we chat?\n\nThanks!";
+  const mailtoHref = `mailto:${PROFILE.email}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+
   return (
     <section id="contact" className="relative isolate overflow-hidden py-24">
       <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-full mask-radial">
@@ -100,7 +108,7 @@ export function Contact() {
 
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           <a
-            href={`mailto:${PROFILE.email}`}
+            href={mailtoHref}
             className="inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-2.5 text-sm font-medium text-background transition hover:bg-foreground/90"
           >
             <Mail className="size-4" /> {PROFILE.email}
