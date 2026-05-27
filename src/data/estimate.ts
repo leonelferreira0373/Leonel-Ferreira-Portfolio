@@ -93,7 +93,7 @@ export const PHASES: Phase[] = [
 // ─── Project types ───────────────────────────────────────────────────
 const T_SIMPLES = tr("Simples", "Simple");
 const T_PADRAO = tr("Padrão", "Standard");
-const T_COMPLETO = tr("Completo", "Complete");
+const T_COMPLEXO = tr("Complexo", "Complex");
 
 export const PROJECT_TYPES: EstimateType[] = [
   {
@@ -123,7 +123,7 @@ export const PROJECT_TYPES: EstimateType[] = [
       },
       {
         id: "completo",
-        label: T_COMPLETO,
+        label: T_COMPLEXO,
         hours: 140,
         adds: [
           tr("Blog / Notícias", "Blog / News"),
@@ -163,7 +163,7 @@ export const PROJECT_TYPES: EstimateType[] = [
       },
       {
         id: "completo",
-        label: T_COMPLETO,
+        label: T_COMPLEXO,
         hours: 280,
         adds: [
           tr("Área de cliente", "Client area"),
@@ -210,7 +210,7 @@ export const PROJECT_TYPES: EstimateType[] = [
       },
       {
         id: "completo",
-        label: T_COMPLETO,
+        label: T_COMPLEXO,
         hours: 520,
         adds: [
           tr("Painel Admin", "Admin panel"),
@@ -254,7 +254,7 @@ export const PROJECT_TYPES: EstimateType[] = [
       },
       {
         id: "completo",
-        label: T_COMPLETO,
+        label: T_COMPLEXO,
         hours: 110,
         adds: [
           tr("Pedidos via WhatsApp", "Orders via WhatsApp"),
@@ -292,7 +292,7 @@ export const PROJECT_TYPES: EstimateType[] = [
       },
       {
         id: "completo",
-        label: T_COMPLETO,
+        label: T_COMPLEXO,
         hours: 720,
         adds: [
           tr("Pagamentos / Subscrições", "Payments / Subscriptions"),
@@ -331,7 +331,7 @@ export const PROJECT_TYPES: EstimateType[] = [
       },
       {
         id: "completo",
-        label: T_COMPLETO,
+        label: T_COMPLEXO,
         hours: 900,
         adds: [
           tr("Pagamentos in-app", "In-app payments"),
@@ -369,7 +369,7 @@ export const PROJECT_TYPES: EstimateType[] = [
       },
       {
         id: "completo",
-        label: T_COMPLETO,
+        label: T_COMPLEXO,
         hours: 400,
         adds: [
           tr("Pagamento de sinal online", "Online deposit payment"),
@@ -406,7 +406,7 @@ export const PROJECT_TYPES: EstimateType[] = [
       },
       {
         id: "completo",
-        label: T_COMPLETO,
+        label: T_COMPLEXO,
         hours: 70,
         adds: [
           tr("Lista de presentes", "Gift registry"),
