@@ -35,6 +35,12 @@ export function Contact() {
     }
   };
 
+  const waMessage =
+    lang === "pt"
+      ? "Olá Leonel! 👋 O meu nome é (preencher) e gostava de falar sobre um projeto. Podemos conversar?"
+      : "Hi Leonel! 👋 My name is (preencher) and I'd like to talk about a project. Can we chat?";
+  const waHref = `${PROFILE.whatsappLink}?text=${encodeURIComponent(waMessage)}`;
+
   return (
     <section id="contact" className="relative isolate overflow-hidden py-24">
       <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-full mask-radial">
@@ -49,7 +55,7 @@ export function Contact() {
 
       <div className="mx-auto max-w-2xl text-center">
         <div className="mb-3 font-mono text-xs uppercase tracking-widest text-muted-foreground">
-          {t({ pt: "07 · Contacto", en: "07 · Contact" })}
+          {t({ pt: "08 · Contacto", en: "08 · Contact" })}
         </div>
         <h2 className="text-4xl font-semibold tracking-tight md:text-5xl">
           {t({ pt: "Vamos falar", en: "Get in touch" })}
@@ -100,7 +106,7 @@ export function Contact() {
             <Mail className="size-4" /> {PROFILE.email}
           </a>
           <a
-            href={PROFILE.whatsappLink}
+            href={waHref}
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center gap-2 rounded-full border border-border bg-card/60 px-5 py-2.5 text-sm font-medium backdrop-blur transition hover:bg-card"

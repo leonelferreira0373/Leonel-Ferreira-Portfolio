@@ -5,6 +5,7 @@ import { Projects } from "@/components/sections/projects";
 import { Apps } from "@/components/sections/apps";
 import { Gallery } from "@/components/sections/gallery";
 import { Experience } from "@/components/sections/experience";
+import { Estimate } from "@/components/sections/estimate";
 import { Contact } from "@/components/sections/contact";
 import { SocialDock } from "@/components/social-dock";
 import { ThemeToggle } from "@/components/theme-toggle";
@@ -32,6 +33,8 @@ export default function App() {
         <Divider />
         <Experience />
         <Divider />
+        <Estimate />
+        <Divider />
         <Contact />
       </main>
       <Footer />
@@ -48,6 +51,7 @@ function NavBar() {
     { href: "#apps", label: { pt: "Apps", en: "Apps" } },
     { href: "#gallery", label: { pt: "Galeria", en: "Gallery" } },
     { href: "#experience", label: { pt: "Experiência", en: "Experience" } },
+    { href: "#orcamento", label: { pt: "Orçamento", en: "Estimate" } },
     { href: "#contact", label: { pt: "Contacto", en: "Contact" } },
   ];
   return (
