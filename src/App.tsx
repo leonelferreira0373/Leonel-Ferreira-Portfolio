@@ -1,4 +1,5 @@
 import { Hero } from "@/components/sections/hero";
+import { Revenue } from "@/components/sections/revenue";
 import { About } from "@/components/sections/about";
 import { Skills } from "@/components/sections/skills";
 import { Projects } from "@/components/sections/projects";
@@ -20,6 +21,8 @@ export default function App() {
       <SocialDock />
       <main className="mx-auto w-full max-w-5xl px-5 sm:px-8">
         <Hero />
+        <Divider />
+        <Revenue />
         <Divider />
         <About />
         <Divider />
@@ -45,6 +48,7 @@ export default function App() {
 function NavBar() {
   const t = useT();
   const links = [
+    { href: "#ferreirakorp", label: { pt: "Ferreira Korp", en: "Ferreira Korp" } },
     { href: "#about", label: { pt: "Sobre", en: "About" } },
     { href: "#skills", label: { pt: "Competências", en: "Skills" } },
     { href: "#projects", label: { pt: "Websites", en: "Websites" } },
